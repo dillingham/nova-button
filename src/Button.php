@@ -14,7 +14,7 @@ class Button extends Field
 
     public $showOnCreation = false;
 
-    public $visible = false;
+    public $visible = true;
 
     public $successMessage = "Complete!";
 
@@ -64,7 +64,7 @@ class Button extends Field
         return $this;
     }
 
-    public function dispatch($event)
+    public function event($event)
     {
         $this->event = $event;
 

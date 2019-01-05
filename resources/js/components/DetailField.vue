@@ -8,7 +8,7 @@
                 @click="handle" 
                 :disabled="loading" 
                 :class="field.classes"
-                class="btn btn-default btn-primary nova-button" 
+                class="nova-button" 
             >{{ field.text }}</button>
         </div>
     </div>
