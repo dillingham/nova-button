@@ -4,7 +4,7 @@
             <label class="inline-block text-80 pt-2 leading-tight"></label>
         </div>
         <div class="py-6 px-8 w-1/2">
-            <button @click="handle" class="nova-button" :class="field.classes">{{ field.text }}</button>
+            <button @click="handle" class="btn btn-primary nova-button" :class="field.classes">{{ field.text }}</button>
         </div>
     </div>
 </template>

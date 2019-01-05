@@ -22,6 +22,8 @@ class Button extends Field
 
     public $event = "NovaButton\Events\Click";
 
+    public $text = "Click Me";
+
     public function __construct($name, $key = null)
     {
         $this->name = $name;
@@ -35,6 +37,7 @@ class Button extends Field
         $this->classes[] = 'nova-button-' . strtolower(class_basename($resource));
         
         $this->withMeta([
+            'text'    => $this->text,
             'event'   => $this->event,
             'classes' => $this->classes,
             'visible' => $this->visible,
