@@ -1,13 +1,12 @@
 <template>
-    <nova-button v-bind="$props">
+    <nova-button 
+        :field="field" 
+        :resourceName="resourceName" 
+        :resourceId="$parent.resource['id'].value">
 </template>
 
 <script>
 export default {
-    props: ['resourceName', 'field'],
-    mounted()
-    {
-        console.log(this.$parent.resource['id'].value)
-    }
+    props: ['resourceName', 'field']
 }
 </script>
