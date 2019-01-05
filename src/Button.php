@@ -40,6 +40,7 @@ class Button extends Field
         $this->classes[] = 'nova-button-' . strtolower(class_basename($resource));
         
         $this->withMeta([
+            'key'     => $this->key,
             'text'    => $this->text,
             'event'   => $this->event,
             'classes' => $this->classes,
