@@ -7,7 +7,7 @@ export default {
     props: ['resourceName', 'field'],
     mounted()
     {
-        console.log(field);
+        console.log(this.field);
     }
 }
 </script>

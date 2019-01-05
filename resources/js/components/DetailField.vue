@@ -11,6 +11,10 @@
 
 <script>
 export default {
-    props: ['resource', 'resourceName', 'resourceId', 'field']
+    props: ['resource', 'resourceName', 'resourceId', 'field'],
+    mounted()
+    {
+        console.log(this.field);
+    }
 }
 </script>

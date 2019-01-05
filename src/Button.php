@@ -7,8 +7,6 @@ use Laravel\Nova\Fields\Field;
 class Button extends Field
 {
     public $classes = [];
-
-    public $showOnIndex = false;
     
     public $showOnUpdate = false;
 
