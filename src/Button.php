@@ -16,7 +16,9 @@ class Button extends Field
 
     public $visible = false;
 
-    public $message = "Complete!";
+    public $successMessage = "Complete!";
+
+    public $errorMessage = "Whoops!";
     
     public $component = 'nova-button';
 
@@ -27,6 +29,7 @@ class Button extends Field
     public function __construct($name, $key = null)
     {
         $this->name = $name;
+        $this->text = $name;
         $this->key = $key ?? kebab_case($name);
     }
 

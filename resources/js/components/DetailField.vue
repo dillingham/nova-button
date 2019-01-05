@@ -4,7 +4,7 @@
             <label class="inline-block text-80 pt-2 leading-tight"></label>
         </div>
         <div class="py-6 px-8 w-1/2">
-            <button @click="handle" class="btn btn-primary nova-button" :class="field.classes">{{ field.text }}</button>
+            <button @click="handle" class="btn btn-default btn-primary nova-button" :class="field.classes">{{ field.text }}</button>
         </div>
     </div>
 </template>
@@ -18,12 +18,12 @@ export default {
                 const response = await this.post();
 
                 this.$toasted.show(
-                    this.__(field.message),
+                    this.__(field.successMessage),
                     {type: 'success'}
                 );
             } catch (error) {
                 this.$toasted.show(
-                    this.__('An error occured'),
+                    this.__(field.errorMessage),
                     {type: 'error'}
                 );
             }
@@ -32,7 +32,7 @@ export default {
         {
             let root = '/nova-vendor/dillingham/nova-button/';
 
-            return Nova.request().post(root + `${this.resourceName}/${this.resourceId}/${this.field.key}/events`, {event: field.event});
+            return Nova.request().post(root + `${this.resourceName}/${this.resourceId}/${this.field.key}/`, {event: field.event});
         }
     }
 }

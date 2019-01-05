@@ -16,6 +16,8 @@ class FieldServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->publishes([ __DIR__.'/../../config/nova-alert.php' => config_path('nova-alert.php')], 'nova-alert');
+
         Nova::serving(function (ServingNova $event) {
             Nova::script('nova-button', __DIR__.'/../../dist/js/field.js');
         });
@@ -28,6 +30,8 @@ class FieldServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->mergeConfigFrom(__DIR__.'/../..//config/nova-alert.php', 'nova-alert');
+
         $this->registerRoutes();
     }
 
@@ -38,9 +42,9 @@ class FieldServiceProvider extends ServiceProvider
      */
     private function registerRoutes()
     {
-        // Route::domain(config('nova.domain', null))
-        //     ->middleware(config('nova.middleware', []))
-        //     ->prefix('/nova-vendor/nova-button')
-        //     ->group('NovaButton\Http\Routes\api.php');
+        Route::domain(config('nova.domain', null))
+            ->middleware(config('nova.middleware', []))
+            ->prefix('/nova-vendor/nova-button')
+            ->group(__DIR__.'\..\Http\Routes\api.php');
     }
 }

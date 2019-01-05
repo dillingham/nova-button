@@ -1,3 +1,6 @@
 <?php
 
-Route::post('/some-endpoint', 'NovaButton\Http\Controllers\ButtonController@store');
+Route::post(
+    '/{resourceName}/resourcceId/{buttonKey}',
+    'NovaButton\Http\Controllers\ButtonController@store'
+);
