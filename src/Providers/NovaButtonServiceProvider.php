@@ -42,9 +42,8 @@ class FieldServiceProvider extends ServiceProvider
      */
     private function registerRoutes()
     {
-        Route::domain(config('nova.domain', null))
-            ->middleware(config('nova.middleware', []))
-            ->prefix('/nova-vendor/nova-button')
-            ->group(__DIR__.'/../Http/Routes/api.php');
+        Route::middleware(['nova'])
+             ->prefix('nova-vendor/nova-button')
+             ->group(__DIR__ . '/../../routes/api.php');
     }
 }

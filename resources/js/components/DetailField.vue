@@ -31,7 +31,7 @@ export default {
         },
         post()
         {
-            let root = '/nova-vendor/dillingham/nova-button/';
+            let root = '/nova-vendor/nova-button/';
 
             return Nova.request().post(root + `${this.resourceName}/${this.resourceId}/${this.field.key}/`, {event: this.field.event});
         }
