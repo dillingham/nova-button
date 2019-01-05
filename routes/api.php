@@ -2,5 +2,5 @@
 
 Route::post(
     '/{resource}/{resourceId}/{buttonKey}',
-    'NovaButton\Http\Controllers\ButtonController@store'
+    'NovaButton\Http\Controllers\ButtonController@handle'
 );

@@ -3,15 +3,15 @@
 namespace NovaButton\Http\Controllers;
 
 use Illuminate\Routing\Controller;
-use NovaButton\Http\Requests\ClickRequest;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 class ButtonController extends Controller
 {
-    public function store(ClickRequest $request)
+    public function handle(NovaRequest $request)
     {
-        $resource = $request->resolvedResource();
-        
         $event = $request->event;
+
+        $resource = $request->findModelQuery()->firstOrFail();
 
         event(new $event($resource, $request->buttonKey));
 
