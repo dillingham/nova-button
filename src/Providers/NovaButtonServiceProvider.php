@@ -41,6 +41,6 @@ class FieldServiceProvider extends ServiceProvider
         Route::domain(config('nova.domain', null))
             ->middleware(config('nova.middleware', []))
             ->prefix('/nova-vendor/nova-button')
-            ->group(__DIR__ . '/Http/Routes/api.php');
+            ->group('NovaButton\Http\Routes\api.php');
     }
 }
