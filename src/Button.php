@@ -44,7 +44,8 @@ class Button extends Field
             'event'   => $this->event,
             'classes' => $this->classes,
             'visible' => $this->visible,
-            'message' => $this->message,
+            'successMessage' => $this->successMessage,
+            'errorMessage' => $this->errorMessage,
         ]);
     }
     
