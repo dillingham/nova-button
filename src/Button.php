@@ -13,6 +13,10 @@ class Button extends Field
     public $showOnUpdate = false;
 
     public $showOnCreation = false;
+
+    public $visible = false;
+
+    public $message = "Complete!";
     
     public $component = 'nova-button';
 
