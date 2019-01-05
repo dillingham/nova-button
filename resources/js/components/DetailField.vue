@@ -14,19 +14,20 @@ export default {
     props: ['resource', 'resourceName', 'resourceId', 'field'],
     methods: {
         async handle() {
-            try {
-                const response = await this.post();
+            this.post();
+            // try {
+            //     const response = await this.post();
 
-                this.$toasted.show(
-                    this.__(field.successMessage),
-                    {type: 'success'}
-                );
-            } catch (error) {
-                this.$toasted.show(
-                    this.__(field.errorMessage),
-                    {type: 'error'}
-                );
-            }
+            //     this.$toasted.show(
+            //         this.__(this.field.successMessage),
+            //         {type: 'success'}
+            //     );
+            // } catch (error) {
+            //     this.$toasted.show(
+            //         this.__(this.field.errorMessage),
+            //         {type: 'error'}
+            //     );
+            // }
         },
         post()
         {
