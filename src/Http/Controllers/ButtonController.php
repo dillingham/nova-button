@@ -3,21 +3,17 @@
 namespace NovaButton\Http\Controllers;
 
 use Illuminate\Routing\Controller;
-use Laravel\Nova\Http\Requests\ResourceDetailRequest;
+use NovaButton\Http\Requests\ClickRequest;
 
 class ButtonController extends Controller
 {
-    public function store(ResourceDetailRequest $request, $resourceName, $resourceId, $buttonKey)
+    public function store(ClickRequest $request)
     {
-        $event = request('event');
+        $resource = $request->resolvedResource();
+        
+        $event = $request->event;
 
-        $resource = $request->newResourceWith(tap($request->findModelQuery(), function ($query) use ($request) {
-            $request->newResource()->detailQuery($request, $query);
-        })->firstOrFail());
-
-        event(new $event($resource, $buttonKey));
-
-        // event(new $event($resourceName, $resourceId, $buttonKey));
+        event(new $event($resource, $request->buttonKey));
 
         return response('', 200);
     }
