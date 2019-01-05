@@ -1,0 +1,23 @@
+{
+    "name": "dillingham/nova-button",
+    "description": "Nova button package",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Brian Dillingham",
+            "email": "bdillingham88@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "NovaButton\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": []
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {}
+}
