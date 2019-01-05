@@ -15,7 +15,9 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": []
+            "providers": [
+                "NovaButton\\FieldServiceProvider"
+            ]
         }
     },
     "minimum-stability": "dev",
