@@ -1,6 +1,6 @@
 <?php
 
 Route::post(
-    '/{resourceName}/{resourcceId}/{buttonKey}',
+    '/{resource}/{resourceId}/{buttonKey}',
     'NovaButton\Http\Controllers\ButtonController@store'
 );
