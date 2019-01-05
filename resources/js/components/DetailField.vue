@@ -4,7 +4,12 @@
             <label class="inline-block text-80 pt-2 leading-tight"></label>
         </div>
         <div class="py-6 px-8 w-1/2">
-            <button @click="handle" class="btn btn-default btn-primary nova-button" :class="field.classes">{{ field.text }}</button>
+            <button 
+                @click="handle" 
+                :disabled="loading" 
+                :class="field.classes"
+                class="btn btn-default btn-primary nova-button" 
+            >{{ field.text }}</button>
         </div>
     </div>
 </template>
@@ -14,23 +19,28 @@ export default {
     props: ['resource', 'resourceName', 'resourceId', 'field'],
     methods: {
         async handle() {
-            this.post();
-            // try {
-            //     const response = await this.post();
+            
+            try {
+                
+                const response = await this.post();
 
-            //     this.$toasted.show(
-            //         this.__(this.field.successMessage),
-            //         {type: 'success'}
-            //     );
-            // } catch (error) {
-            //     this.$toasted.show(
-            //         this.__(this.field.errorMessage),
-            //         {type: 'error'}
-            //     );
-            // }
+                this.loading = false;
+
+                this.$toasted.show(
+                    this.__(this.field.successMessage),
+                    {type: 'success'}
+                );
+            } catch (error) {
+                this.$toasted.show(
+                    this.__(this.field.errorMessage),
+                    {type: 'error'}
+                );
+            }
         },
         post()
         {
+            this.loading = true;
+
             let root = '/nova-vendor/nova-button/';
 
             return Nova.request().post(root + `${this.resourceName}/${this.resourceId}/${this.field.key}/`, {event: this.field.event});

@@ -10,7 +10,7 @@ class ButtonController extends Controller
     {
         $event = request('event');
 
-        (new $event($resourceName, $resourceId, $buttonKey))->dispatch();
+        event(new $event($resourceName, $resourceId, $buttonKey));
 
         return response('', 200);
     }
