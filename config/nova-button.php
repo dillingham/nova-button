@@ -14,9 +14,10 @@ return [
     */
 
     'styles' => [
-        'Primary' => 'bg-primary text-white',
-        'Warning' => 'bg-warning text-white',
-        'Danger' => 'bg-danger text-white',
-        'Info' => 'bg-info text-white',
+        'primary' => 'btn btn-default btn-primary',
+        'warning' => 'btn btn-default btn-warning',
+        'danger' => 'btn btn-default btn-danger',
+        'info' => 'btn btn-default btn-info',
+        'link' => 'cursor-pointer dim inline-block text-primary font-bold',
     ]
 ];

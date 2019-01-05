@@ -1,9 +1,9 @@
 <template>
-    <div class="flex border-b border-40 nova-button-wrapper" resource-id="2">
-        <div class="w-1/5 py-6 px-8">
-            <label class="inline-block text-80 pt-2 leading-tight"></label>
+    <div class="flex border-b border-40 nova-button-wrapper" v-if="field.visible">
+        <div class="w-1/4 py-4">
+            <label class="font-normal text-80"></label>
         </div>
-        <div class="py-6 px-8 w-1/2">
+        <div class="w-3/4 py-4">
             <button 
                 @click="handle" 
                 :disabled="loading" 
@@ -25,6 +25,8 @@ export default {
                 const response = await this.post();
 
                 this.loading = false;
+
+                this.field.visible = false;
 
                 this.$toasted.show(
                     this.__(this.field.successMessage),
