@@ -30,7 +30,7 @@ class FieldServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__.'/../..//config/nova-alert.php', 'nova-alert');
+        $this->mergeConfigFrom(__DIR__.'/../../config/nova-alert.php', 'nova-alert');
 
         $this->registerRoutes();
     }
