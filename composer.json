@@ -16,7 +16,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "NovaButton\\FieldServiceProvider"
+                "NovaButton\\Providers\\FieldServiceProvider"
             ]
         }
     },
