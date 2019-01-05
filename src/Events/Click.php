@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Nova\Events;
+namespace NovaButton\Events;
 
 use Illuminate\Foundation\Events\Dispatchable;
 
