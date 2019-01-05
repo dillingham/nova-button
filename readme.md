@@ -1,4 +1,10 @@
-# Nova Button
+### Nova Button
+
+---
+
+Overview | Style & UI | Basic Behavior | Events & Listeners | Actions | Extend in Packages
+
+---
 
 Simple button to display on a Nova resource.
 
