@@ -86,4 +86,18 @@ class Button extends Field
 
         return $this;
     }
+
+    public function successMessage($successMessage)
+    {
+        $this->successMessage = $successMessage;
+
+        return $this;
+    }
+
+    public function errorMessage($errorMessage)
+    {
+        $this->errorMessage = $errorMessage;
+
+        return $this;
+    }
 }
