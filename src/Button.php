@@ -10,12 +10,12 @@ class Button extends Field
 
     public $style = 'link';
     
+    public $visible = true;
+
     public $showOnUpdate = false;
 
     public $showOnCreation = false;
-
-    public $visible = true;
-
+    
     public $successMessage = "Complete!";
 
     public $errorMessage = "Whoops!";
@@ -26,9 +26,11 @@ class Button extends Field
 
     public $text = "Click Me";
 
-    public $label = "";
+    public $type = null;
 
-    public $indexName = "";
+    public $label = null;
+
+    public $indexName = null;
 
     public $route = null;
 
