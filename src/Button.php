@@ -176,13 +176,17 @@ class Button extends Field
 
         $this->route = [
             'name' => $name,
-            'params' => array_merge($params, [
-                'viaResource' => 'users',
-                'viaResourceId' => '1',
-                // 'viaRelationship' => 'users'
-                // maybe add in vue instead
-                ])
-            ];
+            'params' => $params
+        ];
+
+        // if ($name != 'index') {
+        //     $this->route['params'] = array_merge($this->route['params'], [
+        //         'viaResource' => '', // users
+        //         'viaResourceId' => '', // id
+        //         'viaRelationship' => '' // users
+        //         // maybe add in vue instead
+        //     ]);
+        // }
             
         $this->formatResourceName();
         
