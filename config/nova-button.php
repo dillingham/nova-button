@@ -20,6 +20,7 @@ return [
         'warning' => 'cursor-pointer btn btn-default bg-warning text-white',
         'danger' => 'cursor-pointer btn btn-default bg-danger text-white',
         'info' => 'cursor-pointer btn btn-default bg-info text-white',
+        'grey' => 'cursor-pointer btn btn-default bg-60 text-white',
         'success-outline' => 'cursor-pointer btn btn-default border border-success text-success',
         'primary-outline' => 'cursor-pointer btn btn-default border border-primary text-primary',
         'warning-outline' => 'cursor-pointer btn btn-default border border-warning text-warning ',
