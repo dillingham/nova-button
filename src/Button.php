@@ -7,6 +7,8 @@ use Laravel\Nova\Fields\Field;
 class Button extends Field
 {
     public $classes = [];
+
+    public $style = 'link';
     
     public $showOnUpdate = false;
 
@@ -36,6 +38,8 @@ class Button extends Field
         parent::resolve($resource, $attribute);
 
         $this->classes[] = 'nova-button-' . strtolower(class_basename($resource));
+
+        $this->classes[] = array_get(config('nova-button.styles'), $this->style);
         
         $this->withMeta([
             'key'     => $this->key,
@@ -48,9 +52,9 @@ class Button extends Field
         ]);
     }
     
-    public function style($name)
+    public function style($style)
     {
-        $this->classes[] = array_get(config('nova-button.styles'), $name);
+        $this->style = $style;
 
         return $this;
     }

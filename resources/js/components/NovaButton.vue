@@ -19,6 +19,8 @@ export default {
                 const response = await this.post();
 
                 this.loading = false;
+                
+                this.field.visible = false;
 
                 this.$toasted.show(
                     this.__(this.field.successMessage),
