@@ -107,9 +107,9 @@ class UsersWithoutConfirmation extends Lens
 {
     public static function query(LensRequest $request, $query)
     {
-        return $request->withOrdering($request->withFilters(
-            $query->select(['users.id', 'users.name'])->whereNull('confired_at');
-        ));
+        return $query
+            ->select(['users.id', 'users.name'])
+            ->whereNull('confired_at');
     }
 
     public function fields(Request $request)
