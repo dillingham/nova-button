@@ -14,13 +14,13 @@ use NovaButton\Button;
 Button::make('Notify'),
 ```
 ### Install
-```
+```bash
 composer require dillingham/nova-button
 ```
 
 ### Button Navigation
 
-```
+```php
 ->index('App\Nova\Group')
 ->detail('App\Nova\Group', $this->group_id)
 ->create('App\Nova\Group')
@@ -31,39 +31,39 @@ composer require dillingham/nova-button
 
 ### Button Events
 
-```
+```php
 Button::make('Notify')
 ```
 Default event If no event is declared: `NovaButton\Events\ButtonClick`
 
 The event will receive the resource model it was triggered from & the key
 
-- `$event->resource`
-- `$event->key` "notify"
+- `$event->resource` = `model`
+- `$event->key` = `"notify"`
 
 Adding a custom event
 
-```
+```php
 Button::make('Notify')->event('App\Events\Click')
 ```
 
 Adding a custom key
 
-```
+```php
 Button::make('Notify', 'notify-some-user')->event('App\Events\Click')
 ```
 
 ### Button visiblity 
 
 You will likely want to show or hide buttons depending on model values
-```
+```php
 Button::make('Activate')->visible($this->is_active == false),
 Button::make('Deactivate')->visible($this->is_active == true),
 ```
 
 ### Success & Error Messages
 
-```
+```php
 Button('Confirm')
     ->successMessage('Confirmed!')
     ->errorMessage('Not confirmed')
@@ -95,7 +95,7 @@ php artisan vendor:publish --tag=nova-button
 ```
 
 ### Adding classes
-```
+```php
 Button::make('Refund')->classes('some-class')
 ```
 Also can style the following css classes
