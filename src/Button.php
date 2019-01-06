@@ -114,6 +114,13 @@ class Button extends Field
         return $this;
     }
 
+    public function label($label)
+    {
+        $this->label = $label;
+
+        return $this;
+    }
+
     public function index($namespace)
     {
         $this->route('index', [
