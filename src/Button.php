@@ -22,7 +22,7 @@ class Button extends Field
     
     public $component = 'nova-button';
 
-    public $event = "NovaButton\Events\Click";
+    public $event = "NovaButton\Events\ButtonClick";
 
     public $text = "Click Me";
 
@@ -187,6 +187,7 @@ class Button extends Field
         ];
 
         // if ($name != 'index') {
+
         //     $this->route['params'] = array_merge($this->route['params'], [
         //         'viaResource' => '', // users
         //         'viaResourceId' => '', // id

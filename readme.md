@@ -29,9 +29,7 @@ composer require dillingham/nova-button
 ```
 Button::make('Confirm')
 ```
-Default event If no event is declared:
-
-`NovaButton\Events\CLick`
+Default event If no event is declared: `NovaButton\Events\ButtonClick`
 
 The event will receive the resource model it was triggered from & the key
 
