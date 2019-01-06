@@ -96,6 +96,8 @@ Also can style the following css classes
 
 Make use of [lenses](https://nova.laravel.com/docs/1.0/lenses/defining-lenses.html) with buttons for a very focused UX
 
+![lens-button](https://user-images.githubusercontent.com/29180903/50742642-31f30c00-11dc-11e9-96c2-e0534e963aed.png)
+
 ```php
 <?php
 
@@ -120,3 +122,4 @@ class UsersWithoutConfirmation extends Lens
     }
 }
 ```
+![event-triggered](https://user-images.githubusercontent.com/29180903/50742633-1a1b8800-11dc-11e9-8a2d-5ec70d3fcae4.png)
