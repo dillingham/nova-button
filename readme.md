@@ -64,7 +64,7 @@ Button::make('Deactivate')->visible($this->is_active == true),
 ### Success & Error Messages
 
 ```php
-Button('Confirm')
+Button::make('Confirm')
     ->successMessage('Confirmed!')
     ->errorMessage('Not confirmed')
 ```
