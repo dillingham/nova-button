@@ -75,7 +75,7 @@ This package makes use of tailwind-css classes
 ```php
 'primary' => 'btn btn-default btn-primary'
 ```
-```
+```php
 Button::make('Confirm')->style('primary')
 ```
 
