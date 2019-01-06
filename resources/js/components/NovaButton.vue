@@ -1,5 +1,5 @@
 <template>
-    <span :class="{'nova-button-loading': loading}">
+    <span :class="{'nova-button-submitting': submitting, 'nova-button-submitted': submitted}">
         <button 
             @click="handleClick"
             :class="field.classes"
@@ -9,15 +9,23 @@
 </template>
 
 <style>
-    .nova-button-loading {
+    .nova-button-submitting {
         pointer-events: none;
-        opacity: 0.5;
+        opacity: 0.7;
+    }
+    .nova-button-submitted {
+        pointer-events: none;
+        opacity: 0.1;
     }
 </style>
 
 <script>
 export default {
     props: ['resource', 'resourceName', 'resourceId', 'field'],
+    data: () => ({
+        submitting: false,
+        submitted: false
+    }),
     methods: {
         async handleClick() {
             
@@ -25,7 +33,9 @@ export default {
                 
                 const response = await this.post();
 
-                this.loading = false;
+                this.submitting = false;
+
+                this.submitted = true;
 
                 this.$emit('clicked');
 
@@ -42,7 +52,7 @@ export default {
         },
         post()
         {
-            this.loading = true;
+            this.submitting = true;
 
             let root = '/nova-vendor/nova-button/';
 
