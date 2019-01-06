@@ -9,11 +9,11 @@ class Click
     use Dispatchable;
 
     public $resource;
-    public $buttonKey;
+    public $key;
 
-    public function __construct($resource, $buttonKey)
+    public function __construct($resource, $key)
     {
         $this->resource = $resource;
-        $this->buttonKey = $buttonKey;
+        $this->key = $key;
     }
 }
