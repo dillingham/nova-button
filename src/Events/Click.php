@@ -8,14 +8,12 @@ class Click
 {
     use Dispatchable;
 
-    public $resourceName;
-    public $resourceId;
+    public $resource;
     public $buttonKey;
 
-    public function __construct($resourceName, $resourceId, $buttonKey)
+    public function __construct($resource, $buttonKey)
     {
-        $this->resourceName = $resourceName;
-        $this->resourceId = $resourceId;
+        $this->resource = $resource;
         $this->buttonKey = $buttonKey;
     }
 }
