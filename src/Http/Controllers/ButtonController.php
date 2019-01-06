@@ -15,6 +15,6 @@ class ButtonController extends Controller
 
         event(new $event($resource, $request->buttonKey));
 
-        return response('', 200);
+        return response('ok', 200);
     }
 }
