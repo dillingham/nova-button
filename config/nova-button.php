@@ -14,7 +14,6 @@ return [
     */
 
     'styles' => [
-        'link' => 'cursor-pointer dim inline-block text-primary font-bold no-underline',
         'success' => 'cursor-pointer btn btn-default bg-success text-white',
         'primary' => 'cursor-pointer btn btn-default btn-primary',
         'warning' => 'cursor-pointer btn btn-default bg-warning text-white',

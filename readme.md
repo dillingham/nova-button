@@ -86,7 +86,9 @@ Button::make('Confirm')->style('primary')
 | danger | danger-outline |
 | warning | warning-outline |
 | info | info-outline |
-| link | grey-outline |
+| grey | grey-outline |
+
+Default is 'link'
 
 ### Customize styles
 Publish the nova-button config to add / edit available styles

@@ -15,7 +15,7 @@ class Button extends Field
     public $showOnUpdate = false;
 
     public $showOnCreation = false;
-    
+
     public $successMessage = "Complete!";
 
     public $errorMessage = "Whoops!";
@@ -51,7 +51,7 @@ class Button extends Field
 
         $this->classes[] = 'nova-button-' . strtolower(class_basename($resource));
 
-        $this->classes[] = array_get(config('nova-button.styles'), $this->style);
+        $this->classes[] = array_get($this->styleConfig(), $this->style);
         
         $this->withMeta([
             'key' => $this->key,
@@ -210,6 +210,14 @@ class Button extends Field
     {
         $this->route['params']['resourceName'] = strtolower(
             str_plural(class_basename($this->route['params']['resourceName']))
+        );
+    }
+
+    public function styleConfig()
+    {
+        return array_merge(
+            ['link' => 'cursor-pointer dim inline-block text-primary font-bold no-underline'],
+            config('nova-button.styles')
         );
     }
 }
