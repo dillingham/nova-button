@@ -139,6 +139,21 @@ class UsersWithoutConfirmation extends Lens
     }
 }
 ```
+```php
+<?php
+
+namespace App\Listeners;
+
+class ConfirmUser
+{
+    public function handle($event)
+    {
+        $event->resource->update([
+            'confirmed_at' => now()
+        ]);
+    }
+}
+```
 
 # Telescope inspection
 
