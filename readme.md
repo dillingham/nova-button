@@ -94,7 +94,7 @@ Also can style the following css classes
 `.nova-button` and `.nova-button-{resource-name}`
 
 
-### Recommendation
+### Tip
 
 Make use of [lenses](https://nova.laravel.com/docs/1.0/lenses/defining-lenses.html) with buttons for a very focused UX
 
@@ -108,7 +108,7 @@ class UsersWithoutConfirmation extends Lens
     public static function query(LensRequest $request, $query)
     {
         return $request->withOrdering($request->withFilters(
-            $query->select(['users.id', 'users.name']);
+            $query->select(['users.id', 'users.name'])->whereNull('confired_at');
         ));
     }
 
