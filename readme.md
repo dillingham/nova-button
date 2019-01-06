@@ -92,3 +92,33 @@ Button::make('Refund')->classes('some-class')
 Also can style the following css classes
 
 `.nova-button` and `.nova-button-{resource-name}`
+
+
+### Recommendation
+
+Make use of [lenses](https://nova.laravel.com/docs/1.0/lenses/defining-lenses.html) with buttons for a very focused UX
+
+```php
+<?php
+
+namespace App\Nova\Lenses;
+
+class UsersWithoutConfirmation extends Lens
+{
+    public static function query(LensRequest $request, $query)
+    {
+        return $request->withOrdering($request->withFilters(
+            $query->select(['users.id', 'users.name']);
+        ));
+    }
+
+    public function fields(Request $request)
+    {
+        return [
+            ID::make('ID', 'id'),
+            Text::make('Name', 'name'),
+            Button::make('Mark As Confirmed'),
+        ];
+    }
+}
+```
