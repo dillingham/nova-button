@@ -29,3 +29,12 @@ Default event If no event is declared:
 
 `NovaButton\Events\ButtonClicked`
 
+
+
+### Easily update a model
+
+```
+Button('Confirm)
+    ->visible($this->is_confirmed == false)
+    ->update(['is_confirmed' => true])
+```

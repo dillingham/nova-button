@@ -79,4 +79,11 @@ class Button extends Field
 
         return $this;
     }
+
+    public function update($update)
+    {
+        $this->update = $update;
+
+        return $this;
+    }
 }
