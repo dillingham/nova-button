@@ -44,10 +44,6 @@ export default {
         submitting: false,
         submitted: false
     }),
-    mounted()
-    {
-        console.log(this.field, this.resource, this.resourceName, this.resourceId)
-    },
     methods: {
         async handleClick() {
             

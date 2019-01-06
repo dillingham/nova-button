@@ -41,7 +41,7 @@ class Button extends Field
         $this->key = $key ?? kebab_case($name);
     }
 
-    public function resolveForDisplay($resource, $attribute = null)
+    public function resolve($resource, $attribute = null)
     {
         parent::resolve($resource, $attribute);
 
