@@ -8,6 +8,13 @@
     </span>
 </template>
 
+<style>
+    .nova-button-loading {
+        pointer-events: none;
+        opacity: 0.5;
+    }
+</style>
+
 <script>
 export default {
     props: ['resource', 'resourceName', 'resourceId', 'field'],
@@ -19,8 +26,8 @@ export default {
                 const response = await this.post();
 
                 this.loading = false;
-                
-                this.field.visible = false;
+
+                this.$emit('clicked');
 
                 this.$toasted.show(
                     this.__(this.field.successMessage),

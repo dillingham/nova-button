@@ -1,13 +1,17 @@
 <template>
     <nova-button 
+        v-if="visible"
         :field="field" 
-        v-if="field.visible"
+        @clicked="visible = false"
         :resourceName="resourceName" 
         :resourceId="$parent.resource['id'].value">
 </template>
 
 <script>
 export default {
-    props: ['resourceName', 'field']
+    props: ['resourceName', 'field'],
+    data: () => ({
+        visible: true
+    })
 }
 </script>
