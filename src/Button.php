@@ -106,4 +106,29 @@ class Button extends Field
 
         return $this;
     }
+
+    public function index($namespace)
+    {
+        return $this;
+    }
+
+    public function detail($namespace, $id)
+    {
+        return $this;
+    }
+
+    public function create($namespace)
+    {
+        return $this;
+    }
+
+    public function edit($namespace, $id)
+    {
+        return $this;
+    }
+
+    public function link($href, $target = '_blank')
+    {
+        return $this;
+    }
 }
