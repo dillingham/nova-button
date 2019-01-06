@@ -21,12 +21,12 @@ composer require dillingham/nova-button
 ### Button Navigation
 
 ```php
-->index('App\Nova\Group')
-->detail('App\Nova\Group', $this->group_id)
-->create('App\Nova\Group')
-->edit('App\Nova\Group', $this->group_id)
-->lens('App\Nova\Group', 'groups-by-spend')
-->link('https://nova.laravel.com')
+Button::make('Text')->index('App\Nova\User')
+Button::make('Text')->detail('App\Nova\User', $this->User_id)
+Button::make('Text')->create('App\Nova\User')
+Button::make('Text')->edit('App\Nova\User', $this->User_id)
+Button::make('Text')->lens('App\Nova\User', 'users-without-confirmation')
+Button::make('Text')->link('https://nova.laravel.com')
 ```
 
 ### Button Events
