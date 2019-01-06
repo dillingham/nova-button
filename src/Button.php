@@ -191,6 +191,8 @@ class Button extends Field
 
     public function formatResourceName()
     {
-        $this->route['resourceName'] = strtolower(str_plural(class_basename($this->route['resourceName'])));
+        $this->route['params']['resourceName'] = strtolower(
+            str_plural(class_basename($this->route['params']['resourceName']))
+        );
     }
 }
