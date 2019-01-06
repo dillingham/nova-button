@@ -3,13 +3,14 @@
 Simple button to display on a Nova resource.
 
 ```
-composer require dillingham/nova-button
-```
-```
 use NovaButton\Button;
 ```
 ```php
 Button::make('Confirm'),
+```
+### Install
+```
+composer require dillingham/nova-button
 ```
 
 ### Button Navigation
