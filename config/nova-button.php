@@ -15,16 +15,16 @@ return [
 
     'styles' => [
         'link' => 'cursor-pointer dim inline-block text-primary font-bold',
-        'success' => 'btn btn-default btn-success',
-        'primary' => 'btn btn-default btn-primary',
-        'warning' => 'btn btn-default bg-warning text-white',
-        'danger' => 'btn btn-default bg-danger text-white',
-        'info' => 'btn btn-default bg-info text-white',
-        'success-outline' => 'btn btn-default border border-success text-success',
-        'primary-outline' => 'btn btn-default border border-primary text-primary',
-        'warning-outline' => 'btn btn-default border border-warning text-warning ',
-        'danger-outline' => 'btn btn-default border border-danger text-danger ',
-        'info-outline' => 'btn btn-default border border-info text-info ',
-        'grey-outline' => 'btn btn-default border',
+        'success' => 'cursor-pointer btn btn-default btn-success',
+        'primary' => 'cursor-pointer btn btn-default btn-primary',
+        'warning' => 'cursor-pointer btn btn-default bg-warning text-white',
+        'danger' => 'cursor-pointer btn btn-default bg-danger text-white',
+        'info' => 'cursor-pointer btn btn-default bg-info text-white',
+        'success-outline' => 'cursor-pointer btn btn-default border border-success text-success',
+        'primary-outline' => 'cursor-pointer btn btn-default border border-primary text-primary',
+        'warning-outline' => 'cursor-pointer btn btn-default border border-warning text-warning ',
+        'danger-outline' => 'cursor-pointer btn btn-default border border-danger text-danger ',
+        'info-outline' => 'cursor-pointer btn btn-default border border-info text-info ',
+        'grey-outline' => 'cursor-pointer btn btn-default border',
     ]
 ];

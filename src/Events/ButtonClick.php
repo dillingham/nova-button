@@ -4,7 +4,7 @@ namespace NovaButton\Events;
 
 use Illuminate\Foundation\Events\Dispatchable;
 
-class Click
+class ButtonClick
 {
     use Dispatchable;
 
