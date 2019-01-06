@@ -1,12 +1,17 @@
 ### Nova Button
 
+[![Latest Version on Github](https://img.shields.io/github/release/dillingham/nova-button.svg?style=flat-square)](https://packagist.org/packages/dillingham/nova-button)
+[![Total Downloads](https://img.shields.io/packagist/dt/dillingham/nova-button.svg?style=flat-square)](https://packagist.org/packages/dillingham/nova-button)
+
+![nova-button](https://user-images.githubusercontent.com/29180903/50742708-dffeb600-11dc-11e9-9eed-36f42166c7c4.png)
+
 Simple button to display on a Nova resource.
 
 ```
 use NovaButton\Button;
 ```
 ```php
-Button::make('Confirm'),
+Button::make('Notify'),
 ```
 ### Install
 ```
@@ -27,19 +32,25 @@ composer require dillingham/nova-button
 ### Button Events
 
 ```
-Button::make('Confirm')
+Button::make('Notify')
 ```
 Default event If no event is declared: `NovaButton\Events\ButtonClick`
 
 The event will receive the resource model it was triggered from & the key
 
 - `$event->resource`
-- `$event->key` "confirm"
+- `$event->key` "notify"
 
 Adding a custom event
 
 ```
-Button::make('Confirm')->event('App\Events\Click')
+Button::make('Notify')->event('App\Events\Click')
+```
+
+Adding a custom key
+
+```
+Button::make('Notify', 'notify-some-user')->event('App\Events\Click')
 ```
 
 ### Button visiblity 
@@ -92,7 +103,7 @@ Also can style the following css classes
 `.nova-button` and `.nova-button-{resource-name}`
 
 
-### Tip
+# Example
 
 Make use of [lenses](https://nova.laravel.com/docs/1.0/lenses/defining-lenses.html) with buttons for a very focused UX
 
