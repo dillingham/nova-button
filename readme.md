@@ -139,6 +139,7 @@ class UsersWithoutConfirmation extends Lens
     }
 }
 ```
+Register a listener in EventServiceProvider
 ```php
 <?php
 
@@ -148,11 +149,18 @@ class ConfirmUser
 {
     public function handle($event)
     {
-        $event->resource->update([
-            'confirmed_at' => now()
-        ]);
+        if ($event->key == 'mark-as-confirmed') {
+            $event->resource->update([
+                'confirmed_at' => now()
+            ]);
+        }
     }
 }
+```
+^ You don't have to check the key if you declare an event 
+
+```php
+Button::make('Confirm', 'mark-as-confirmed')->event('App\Events'\ConfirmClick')
 ```
 
 # Telescope inspection
