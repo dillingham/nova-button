@@ -34,6 +34,8 @@ class Button extends Field
 
     public $link = null;
 
+    public $indexAlign = 'right';
+
     public function __construct($name, $key = null)
     {
         $this->name = $name;
@@ -60,6 +62,7 @@ class Button extends Field
             'visible' => $this->visible,
             'classes' => $this->classes,
             'indexName' => $this->indexName,
+            'indexAlign' => $this->indexAlign,
             'errorMessage' => $this->errorMessage,
             'successMessage' => $this->successMessage,
         ]);
