@@ -14,7 +14,7 @@ composer require dillingham/nova-button
 
 ```php
 Button::make('Confirm')
-    ->dispatch('App\Events\UserConfirmed')
+    ->event('App\Events\UserConfirmed')
     ->classes('bg-red text-white')
     ->visible($this->confirmed_at == null),
 ```
