@@ -179,7 +179,7 @@ class Button extends Field
             'params' => array_merge($params, [
                 'viaResource' => 'users',
                 'viaResourceId' => '1',
-                'viaRelationship' => 'users'
+                // 'viaRelationship' => 'users'
                 // maybe add in vue instead
                 ])
             ];
