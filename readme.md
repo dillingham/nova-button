@@ -1,21 +1,15 @@
 ### Nova Button
 
----
-
-Overview | Style & UI | Basic Behavior | Events & Listeners | Actions | Extend in Packages
-
----
-
 Simple button to display on a Nova resource.
 
 ```
 composer require dillingham/nova-button
 ```
-
+```
+use NovaButton\Button;
+```
 ```php
-Button::make('Confirm')
-    ->event('App\Events\UserConfirmed')
-    ->classes('bg-red text-white'),
+Button::make('Confirm'),
 ```
 
 ### Button Navigation
@@ -29,7 +23,7 @@ Button::make('Confirm')
 ->link('https://nova.laravel.com')
 ```
 
-### Button Event Handling
+### Button Events
 
 ```
 Button::make('Confirm')
@@ -56,29 +50,44 @@ You will likely want to show or hide buttons depending on model values
 Button::make('Activate')->visible($this->is_active == false),
 Button::make('Deactivate')->visible($this->is_active == true),
 ```
-### Easily update a model
-
-```
-Button('Confirm')
-    ->visible($this->is_confirmed == false)
-    ->update(['is_confirmed' => true])
-```
 
 ### Success & Error Messages
 
 ```
 Button('Confirm')
-    ->visible($this->is_confirmed == false)
     ->successMessage('Confirmed!')
     ->errorMessage('Not confirmed')
 ```
 
-### Get stylish
+### Button Styles
 
+This package makes use of tailwind-css classes 
+```php
+'primary' => 'btn btn-default btn-primary'
 ```
-Button::make('Confirm')->style('primary-outline')
 ```
+Button::make('Confirm')->style('primary')
+```
+
+| Fill  | Outline |
+|---|---|
+| primary | primary-outline |
+| success | success-outline |
+| danger | danger-outline |
+| warning | warning-outline |
+| info | info-outline |
+| link | grey-outline |
+
+### Customize styles
 Publish the nova-button config to add / edit available styles
 ```
 php artisan vendor:publish --tag=nova-button
 ```
+
+### Adding classes
+```
+Button::make('Refund')->classes('some-class')
+```
+Also can style the following css classes
+
+`.nova-button` and `.nova-button-{resource-name}`
