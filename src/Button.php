@@ -26,6 +26,8 @@ class Button extends Field
 
     public $text = "Click Me";
 
+    public $label = "";
+
     public $indexName = "";
 
     public function __construct($name, $key = null)
@@ -47,6 +49,7 @@ class Button extends Field
             'key'     => $this->key,
             'text'    => $this->text,
             'event'   => $this->event,
+            'label'    => $this->label,
             'classes' => $this->classes,
             'visible' => $this->visible,
             'indexName' => $this->indexName,
