@@ -33,6 +33,8 @@ Button::make('Text')->link('https://nova.laravel.com')
 
 ### Button Events
 
+The button allows you to trigger Laravel events, [view telescope example](https://github.com/dillingham/nova-button#telescope-inspection)
+
 ```php
 Button::make('Notify')
 ```
@@ -137,4 +139,7 @@ class UsersWithoutConfirmation extends Lens
     }
 }
 ```
+
+# Telescope inspection
+
 ![event-triggered](https://user-images.githubusercontent.com/29180903/50742633-1a1b8800-11dc-11e9-8a2d-5ec70d3fcae4.png)
