@@ -14,8 +14,8 @@ return [
     */
 
     'styles' => [
-        'link' => 'cursor-pointer dim inline-block text-primary font-bold',
-        'success' => 'cursor-pointer btn btn-default btn-success',
+        'link' => 'cursor-pointer dim inline-block text-primary font-bold no-underline',
+        'success' => 'cursor-pointer btn btn-default bg-success text-white',
         'primary' => 'cursor-pointer btn btn-default btn-primary',
         'warning' => 'cursor-pointer btn btn-default bg-warning text-white',
         'danger' => 'cursor-pointer btn btn-default bg-danger text-white',
@@ -25,6 +25,6 @@ return [
         'warning-outline' => 'cursor-pointer btn btn-default border border-warning text-warning ',
         'danger-outline' => 'cursor-pointer btn btn-default border border-danger text-danger ',
         'info-outline' => 'cursor-pointer btn btn-default border border-info text-info ',
-        'grey-outline' => 'cursor-pointer btn btn-default border',
+        'grey-outline' => 'cursor-pointer btn btn-default border border-60 text-80 ',
     ]
 ];
