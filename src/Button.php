@@ -30,6 +30,10 @@ class Button extends Field
 
     public $indexName = "";
 
+    public $route = null;
+
+    public $link = null;
+
     public function __construct($name, $key = null)
     {
         $this->name = $name;
@@ -46,15 +50,18 @@ class Button extends Field
         $this->classes[] = array_get(config('nova-button.styles'), $this->style);
         
         $this->withMeta([
-            'key'     => $this->key,
-            'text'    => $this->text,
-            'event'   => $this->event,
-            'label'    => $this->label,
-            'classes' => $this->classes,
+            'key' => $this->key,
+            'type' => $this->type,
+            'link' => $this->link,
+            'text'  => $this->text,
+            'event' => $this->event,
+            'label' => $this->label,
+            'route' => $this->route,
             'visible' => $this->visible,
+            'classes' => $this->classes,
             'indexName' => $this->indexName,
-            'successMessage' => $this->successMessage,
             'errorMessage' => $this->errorMessage,
+            'successMessage' => $this->successMessage,
         ]);
     }
     
@@ -109,26 +116,81 @@ class Button extends Field
 
     public function index($namespace)
     {
+        $this->route('index', [
+            'resourceName' => $namespace
+        ]);
+
         return $this;
     }
 
     public function detail($namespace, $id)
     {
+        $this->route('detail', [
+            'resourceName' => $namespace,
+            'resourceId' => $id,
+        ]);
+
         return $this;
     }
 
     public function create($namespace)
     {
+        $this->route('create', [
+            'resourceName' => $namespace
+        ]);
+
         return $this;
     }
 
     public function edit($namespace, $id)
     {
+        $this->route('edit', [
+            'resourceName' => $namespace,
+            'resourceId' => $id,
+        ]);
+
+        return $this;
+    }
+
+    public function lens($namespace, $key)
+    {
+        $this->route('lens', [
+            'resourceName' => $namespace,
+            'lens' => $key
+        ]);
+
         return $this;
     }
 
     public function link($href, $target = '_blank')
     {
+        $this->type = 'link';
+        $this->link = compact('href', 'target');
+
         return $this;
+    }
+
+    public function route($name, $params)
+    {
+        $this->type = 'route';
+
+        $this->route = [
+            'name' => $name,
+            'params' => array_merge($params, [
+                'viaResource' => 'users',
+                'viaResourceId' => '1',
+                'viaRelationship' => 'users'
+                // maybe add in vue instead
+                ])
+            ];
+            
+        $this->formatResourceName();
+        
+        return $this;
+    }
+
+    public function formatResourceName()
+    {
+        $this->route['resourceName'] = strtolower(str_plural(class_basename($this->route['resourceName'])));
     }
 }

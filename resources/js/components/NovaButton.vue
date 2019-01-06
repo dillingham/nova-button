@@ -1,11 +1,29 @@
 <template>
-    <span :class="{'nova-button-submitting': submitting, 'nova-button-submitted': submitted}">
-        <button 
+<span>
+    <router-link 
+        v-if="field.type == 'route'" 
+        :to="field.route" 
+        class="nova-button" 
+        :class="field.classes"
+        v-html="field.text"
+    />
+    <a 
+        v-else-if="field.type == 'link'" 
+        :href="field.link.href" 
+        :target="field.link.target" 
+        class="nova-button" 
+        :class="field.classes"
+        v-html="field.text"
+    />
+    <span v-else :class="ajaxClasses">
+        <a 
             @click="handleClick"
             :class="field.classes"
             class="nova-button"
-        >{{ field.text }}</button>
+            v-html="field.text"
+        />
     </span>
+</span>
 </template>
 
 <style>
@@ -57,6 +75,12 @@ export default {
             let root = '/nova-vendor/nova-button/';
 
             return Nova.request().post(root + `${this.resourceName}/${this.resourceId}/${this.field.key}/`, {event: this.field.event});
+        }
+    },
+    computed: {
+        ajaxClasses: function()
+        {
+            return {'nova-button-submitting': this.submitting, 'nova-button-submitted': this.submitted}
         }
     }
 }
