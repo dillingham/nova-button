@@ -146,7 +146,7 @@ class UsersWithoutConfirmation extends Lens
     {
         return $query
             ->select(['users.id', 'users.name'])
-            ->whereNull('confired_at');
+            ->whereNull('email_verified_at');
     }
 
     public function fields(Request $request)
@@ -170,9 +170,8 @@ class ConfirmUser
     public function handle($event)
     {
         if ($event->key == 'mark-as-confirmed') {
-            $event->resource->update([
-                'confirmed_at' => now()
-            ]);
+            $event->resource->email_verified_at = now();
+            $event->resource->save();
         }
     }
 }
@@ -180,7 +179,7 @@ class ConfirmUser
 ^ You don't have to check the key if you declare an event 
 
 ```php
-Button::make('Confirm', 'mark-as-confirmed')->event('App\Events'\ConfirmClick')
+Button::make('Confirm')->event('App\Events'\ConfirmClick')
 ```
 
 # Telescope inspection
