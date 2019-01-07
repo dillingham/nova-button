@@ -35,23 +35,21 @@ public function fields(Request $request)
 
 By default, clicking the button will trigger a backend event via ajax.
 
-Default event If no event is declared: `NovaButton\Events\ButtonClick`
+Default event: `NovaButton\Events\ButtonClick`
 
 The event will receive the resource model it was triggered from & the key
 
 - `$event->resource` = `model`
 - `$event->key` = `"notify"`
 
-Adding a custom event
-
-```php
-Button::make('Notify')->event('App\Events\NotifyRequested')
-```
-
 Adding a custom key
 
 ```php
-Button::make('Notify', 'notify-some-user')->event('App\Events\NotifyRequested')
+Button::make('Notify', 'notify-some-user')
+```
+Adding a custom event
+```php
+Button::make('Notify')->event('App\Events\NotifyRequested')
 ```
 
 You register listeners in your EventServiceProvider
