@@ -31,7 +31,7 @@ public function fields(Request $request)
 }
 ```
 
-### Button Events
+### Button events
 
 By default, clicking the button will trigger a backend event via ajax.
 
@@ -54,7 +54,7 @@ Button::make('Notify')->event('App\Events\NotifyRequested')
 
 You register listeners in your EventServiceProvider
 
-### Button Navigation
+### Button navigation
 
 You can also choose to navigate any of the Nova routes
 
@@ -82,7 +82,7 @@ Button::make('Deactivate')->visible($this->is_active == true),
 
 Also [field authorization](https://nova.laravel.com/docs/1.0/resources/authorization.html#fields) via canSee() & [showing / hiding fields](https://nova.laravel.com/docs/1.0/resources/fields.html#showing-hiding-fields) hideFromIndex(), etc 
 
-### Button Styles
+### Button styles
 
 This package makes use of [tailwind-css](https://tailwindcss.com) classes / default: `link`
 
@@ -109,12 +109,11 @@ Publish the nova-button config to add / edit [available styles](https://github.c
 ```
 php artisan vendor:publish --tag=nova-button
 ```
-
-### Adding classes
+You can also add classes manually
 ```php
 Button::make('Refund')->classes('some-class')
 ```
-Also can style the following css classes
+Also able to style the following css classes
 
 `.nova-button` and `.nova-button-{resource-name}`
 
