@@ -80,9 +80,7 @@ Button::make('Activate')->visible($this->is_active == false),
 Button::make('Deactivate')->visible($this->is_active == true),
 ```
 
-You can also use [field authorization](https://nova.laravel.com/docs/1.0/resources/authorization.html#fields) via ->canSee()
-
-As well as [showing / hiding fields](https://nova.laravel.com/docs/1.0/resources/fields.html#showing-hiding-fields) onlyOnDetail(), hideFromIndex(), etc 
+Also [field authorization](https://nova.laravel.com/docs/1.0/resources/authorization.html#fields) via ->canSee() & [showing / hiding fields](https://nova.laravel.com/docs/1.0/resources/fields.html#showing-hiding-fields) hideFromIndex(), etc 
 
 ### Button Styles
 
