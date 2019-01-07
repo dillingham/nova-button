@@ -120,6 +120,8 @@ Also can style the following css classes
 
 ### Success & Error Messages
 
+Change the text displayed after the ajax event triggers
+
 ```php
 Button::make('Confirm')
     ->successMessage('Confirmed!')
