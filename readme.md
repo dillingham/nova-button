@@ -3,9 +3,21 @@
 [![Latest Version on Github](https://img.shields.io/github/release/dillingham/nova-button.svg?style=flat-square)](https://packagist.org/packages/dillingham/nova-button)
 [![Total Downloads](https://img.shields.io/packagist/dt/dillingham/nova-button.svg?style=flat-square)](https://packagist.org/packages/dillingham/nova-button)
 
+Nova package for rendering buttons on index, detail and lens views.
+
+Use it to trigger backend events, navigate nova routes or visit links.
+
+Comes with alot of flexibility, style options and ability to customize .
+
 ![nova-button](https://user-images.githubusercontent.com/29180903/50742708-dffeb600-11dc-11e9-9eed-36f42166c7c4.png)
 
-Simple button to display on a Nova resource.
+```bash
+composer require dillingham/nova-button
+```
+
+
+
+
 
 ```
 use NovaButton\Button;
@@ -13,31 +25,11 @@ use NovaButton\Button;
 ```php
 Button::make('Notify'),
 ```
-### Install
-```bash
-composer require dillingham/nova-button
-```
-
-### Button Navigation
-
-Navigate all the Nova routes & external links
-
-```php
-Button::make('Text')->index('App\Nova\User')
-Button::make('Text')->detail('App\Nova\User', $this->user_id)
-Button::make('Text')->create('App\Nova\User')
-Button::make('Text')->edit('App\Nova\User', $this->user_id)
-Button::make('Text')->lens('App\Nova\User', 'users-without-confirmation')
-Button::make('Text')->link('https://nova.laravel.com')
-```
 
 ### Button Events
 
-The button allows you to trigger Laravel events, [view telescope example](https://github.com/dillingham/nova-button#telescope-inspection)
+By default, clicking the button will trigger a backend event via ajax.
 
-```php
-Button::make('Notify')
-```
 Default event If no event is declared: `NovaButton\Events\ButtonClick`
 
 The event will receive the resource model it was triggered from & the key
@@ -48,13 +40,33 @@ The event will receive the resource model it was triggered from & the key
 Adding a custom event
 
 ```php
-Button::make('Notify')->event('App\Events\Click')
+Button::make('Notify')->event('App\Events\NotifyRequested')
 ```
 
 Adding a custom key
 
 ```php
-Button::make('Notify', 'notify-some-user')->event('App\Events\Click')
+Button::make('Notify', 'notify-some-user')->event('App\Events\NotifyRequested')
+```
+
+You register listeners in your EventServiceProvider
+
+### Button Navigation
+
+You can also choose to navigate any of the Nova routes
+
+```php
+Button::make('Text')->index('App\Nova\User')
+Button::make('Text')->detail('App\Nova\User', $this->user_id)
+Button::make('Text')->create('App\Nova\User')
+Button::make('Text')->edit('App\Nova\User', $this->user_id)
+Button::make('Text')->lens('App\Nova\User', 'users-without-confirmation')
+```
+
+Or external links
+```php
+Button::make('Text')->link('https://nova.laravel.com')
+Button::make('Text')->link('https://nova.laravel.com', '_self')
 ```
 
 ### Button visiblity 
@@ -63,14 +75,6 @@ You will likely want to show or hide buttons depending on model values
 ```php
 Button::make('Activate')->visible($this->is_active == false),
 Button::make('Deactivate')->visible($this->is_active == true),
-```
-
-### Success & Error Messages
-
-```php
-Button::make('Confirm')
-    ->successMessage('Confirmed!')
-    ->errorMessage('Not confirmed')
 ```
 
 ### Button Styles
@@ -108,6 +112,13 @@ Also can style the following css classes
 
 `.nova-button` and `.nova-button-{resource-name}`
 
+### Success & Error Messages
+
+```php
+Button::make('Confirm')
+    ->successMessage('Confirmed!')
+    ->errorMessage('Not confirmed')
+```
 
 # Example
 
