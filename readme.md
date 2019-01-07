@@ -5,21 +5,19 @@
 
 Nova package for rendering buttons on index, detail and lens views.
 
-Use it to trigger backend events, navigate nova routes or visit links.
-
-Comes with alot of flexibility, style options and ability to customize .
-
 ![nova-button](https://user-images.githubusercontent.com/29180903/50742708-dffeb600-11dc-11e9-9eed-36f42166c7c4.png)
 
 ```bash
 composer require dillingham/nova-button
 ```
 
+Use it to trigger backend events, navigate nova routes or visit links.
+
+Comes with alot of flexibility, style options and ability to customize .
 
 
 
-
-```
+```php
 use NovaButton\Button;
 ```
 ```php
@@ -79,10 +77,8 @@ Button::make('Deactivate')->visible($this->is_active == true),
 
 ### Button Styles
 
-This package makes use of tailwind-css classes 
-```php
-'primary' => 'btn btn-default btn-primary'
-```
+This package makes use of tailwind-css classes / Default: `link`
+
 ```php
 Button::make('Confirm')->style('primary')
 ```
@@ -96,9 +92,12 @@ Button::make('Confirm')->style('primary')
 | info | info-outline |
 | grey | grey-outline |
 
-Default is 'link'
+Each key adds classes from the `nova-button` config
+```php
+'primary' => 'btn btn-default btn-primary'
+```
 
-### Customize styles
+### Style config
 Publish the nova-button config to add / edit available styles
 ```
 php artisan vendor:publish --tag=nova-button
@@ -119,6 +118,7 @@ Button::make('Confirm')
     ->successMessage('Confirmed!')
     ->errorMessage('Not confirmed')
 ```
+---
 
 # Example
 
