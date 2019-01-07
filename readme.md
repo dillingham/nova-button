@@ -80,11 +80,11 @@ Button::make('Activate')->visible($this->is_active == false),
 Button::make('Deactivate')->visible($this->is_active == true),
 ```
 
-Also [field authorization](https://nova.laravel.com/docs/1.0/resources/authorization.html#fields) via ->canSee() & [showing / hiding fields](https://nova.laravel.com/docs/1.0/resources/fields.html#showing-hiding-fields) hideFromIndex(), etc 
+Also [field authorization](https://nova.laravel.com/docs/1.0/resources/authorization.html#fields) via canSee() & [showing / hiding fields](https://nova.laravel.com/docs/1.0/resources/fields.html#showing-hiding-fields) hideFromIndex(), etc 
 
 ### Button Styles
 
-This package makes use of tailwind-css classes / Default: `link`
+This package makes use of [tailwind-css](https://tailwindcss.com) classes / default: `link`
 
 ```php
 Button::make('Confirm')->style('primary')
@@ -105,7 +105,7 @@ Each key adds classes from the `nova-button` config
 ```
 
 ### Style config
-Publish the nova-button config to add / edit available styles
+Publish the nova-button config to add / edit [available styles](https://github.com/dillingham/nova-button/blob/master/config/nova-button.php)
 ```
 php artisan vendor:publish --tag=nova-button
 ```
@@ -159,7 +159,7 @@ class UsersWithoutConfirmation extends Lens
     }
 }
 ```
-Register a listener in EventServiceProvider
+Register a listener in [EventServiceProvider](https://laravel.com/docs/5.7/events)
 ```php
 <?php
 
