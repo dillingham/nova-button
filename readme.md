@@ -21,7 +21,14 @@ Comes with alot of flexibility, style options and ability to customize .
 use NovaButton\Button;
 ```
 ```php
-Button::make('Notify'),
+public function fields(Request $request)
+{
+    return [
+        ID::make('ID', 'id')->sortable(),
+        Text::make('Name', 'name'),
+        Button::make('Notify'),
+    ];
+}
 ```
 
 ### Button Events
