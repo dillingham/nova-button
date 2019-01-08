@@ -3,7 +3,7 @@
         <nova-button 
             :field="field"
             :resourceName="resourceName"
-            :resourceId="$parent.resource['id'].value">
+            :resourceId="$parent.resource['id'].value" />
     </span>
 </template>
 

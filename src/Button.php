@@ -85,7 +85,7 @@ class Button extends Field
 
     public function classes($classes)
     {
-        $this->classes = $classes;
+        $this->classes[] = $classes;
 
         return $this;
     }

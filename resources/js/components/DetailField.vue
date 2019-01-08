@@ -4,7 +4,7 @@
             <label class="font-normal text-80">{{ field.label }}</label>
         </div>
         <div class="w-3/4 py-4">
-            <nova-button v-bind="$props" @clicked="visible = false">
+            <nova-button v-bind="$props" @clicked="visible = false" />
         </div>
     </div>
 </template>
