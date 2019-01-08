@@ -51,6 +51,12 @@ class Button extends Field
 
         $this->classes[] = 'nova-button-' . strtolower(class_basename($resource));
 
+        if ($this->visible == false) {
+            $this->canSee(function () {
+                return false;
+            });
+        }
+        
         $this->classes[] = array_get($this->styleConfig(), $this->style);
         
         $this->withMeta([
