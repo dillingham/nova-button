@@ -182,7 +182,7 @@ class ConfirmUser
     }
 }
 ```
-^ You don't have to check the key if you declare an event 
+^ No `key` check needed if you declare an event specifically for this listener 
 
 ```php
 Button::make('Confirm')->event('App\Events'\ConfirmClick')
