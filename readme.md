@@ -165,7 +165,7 @@ class UsersWithoutConfirmation extends Lens
     }
 }
 ```
-Register a listener in [EventServiceProvider](https://laravel.com/docs/5.7/events)
+Register a listener for `\NovaButton\Events\ButtonClick` in [EventServiceProvider](https://laravel.com/docs/5.7/events)
 ```php
 <?php
 
@@ -182,7 +182,7 @@ class ConfirmUser
     }
 }
 ```
-^ No `key` check needed if you declare an event specifically for this listener
+^ No `key` check needed if you register an event specifically for this listener
 
 ```php
 Button::make('Confirm')->event('App\Events\ConfirmClick')
