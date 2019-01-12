@@ -152,7 +152,7 @@ class UsersWithoutConfirmation extends Lens
     {
         return $query
             ->select(['users.id', 'users.name'])
-            ->whereNull('email_verified_at');
+            ->whereNull('email_verified_at'); <--
     }
 
     public function fields(Request $request)
@@ -182,7 +182,7 @@ class ConfirmUser
     }
 }
 ```
-^ No `key` check needed if you register an event specifically for this listener
+^ No `key` check required when you register an event for this listener
 
 ```php
 Button::make('Confirm')->event('App\Events\ConfirmClick')
