@@ -72,7 +72,7 @@ Button::make('Text')->link('https://nova.laravel.com')
 Button::make('Text')->link('https://nova.laravel.com', '_self')
 ```
 
-### Button visiblity 
+### Button visiblity
 
 You will likely want to show or hide buttons depending on model values
 ```php
@@ -80,7 +80,7 @@ Button::make('Activate')->visible($this->is_active == false),
 Button::make('Deactivate')->visible($this->is_active == true),
 ```
 
-Also [field authorization](https://nova.laravel.com/docs/1.0/resources/authorization.html#fields) via canSee() & [showing / hiding fields](https://nova.laravel.com/docs/1.0/resources/fields.html#showing-hiding-fields) hideFromIndex(), etc 
+Also [field authorization](https://nova.laravel.com/docs/1.0/resources/authorization.html#fields) via canSee() & [showing / hiding fields](https://nova.laravel.com/docs/1.0/resources/fields.html#showing-hiding-fields) hideFromIndex(), etc
 
 ### Page Reload
 After events are triggered, reload the page.
@@ -182,10 +182,10 @@ class ConfirmUser
     }
 }
 ```
-^ No `key` check needed if you declare an event specifically for this listener 
+^ No `key` check needed if you declare an event specifically for this listener
 
 ```php
-Button::make('Confirm')->event('App\Events'\ConfirmClick')
+Button::make('Confirm')->event('App\Events\ConfirmClick')
 ```
 
 # Telescope inspection
