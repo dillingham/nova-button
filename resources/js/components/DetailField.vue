@@ -14,6 +14,11 @@ export default {
     props: ['resource', 'resourceName', 'resourceId', 'field'],
     data: () => ({
         visible: true
-    })
+    }),
+    handleClick() {
+        if(this.field.reload) {
+            this.$router.go()
+        }
+    }
 }
 </script>

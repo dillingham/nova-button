@@ -9,6 +9,8 @@ class Button extends Field
     public $classes = [];
 
     public $style = 'link';
+
+    public $reload = false;
     
     public $visible = true;
 
@@ -67,6 +69,7 @@ class Button extends Field
             'event' => $this->event,
             'label' => $this->label,
             'route' => $this->route,
+            'reload' => $this->reload,
             'visible' => $this->visible,
             'classes' => $this->classes,
             'indexName' => $this->indexName,
@@ -86,6 +89,13 @@ class Button extends Field
     public function classes($classes)
     {
         $this->classes[] = $classes;
+
+        return $this;
+    }
+
+    public function reload($reload = true)
+    {
+        $this->reload = $reload;
 
         return $this;
     }

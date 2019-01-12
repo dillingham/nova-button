@@ -82,6 +82,13 @@ Button::make('Deactivate')->visible($this->is_active == true),
 
 Also [field authorization](https://nova.laravel.com/docs/1.0/resources/authorization.html#fields) via canSee() & [showing / hiding fields](https://nova.laravel.com/docs/1.0/resources/fields.html#showing-hiding-fields) hideFromIndex(), etc 
 
+### Page Reload
+After events are triggered, reload the page.
+
+```php
+Button::make('Notify')->reload()
+```
+
 ### Button styles
 
 This package makes use of [tailwind-css](https://tailwindcss.com) classes / default: `link`
