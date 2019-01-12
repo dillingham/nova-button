@@ -1,4 +1,4 @@
-### Nova Button
+## Nova Button
 
 [![Latest Version on Github](https://img.shields.io/github/release/dillingham/nova-button.svg?style=flat-square)](https://packagist.org/packages/dillingham/nova-button)
 [![Total Downloads](https://img.shields.io/packagist/dt/dillingham/nova-button.svg?style=flat-square)](https://packagist.org/packages/dillingham/nova-button)
@@ -165,7 +165,7 @@ class UsersWithoutConfirmation extends Lens
     }
 }
 ```
-Register a listener for `\NovaButton\Events\ButtonClick` in [EventServiceProvider](https://laravel.com/docs/5.7/events)
+Register a listener for `\NovaButton\Events\ButtonClick` in your [EventServiceProvider](https://laravel.com/docs/5.7/events)
 ```php
 <?php
 
