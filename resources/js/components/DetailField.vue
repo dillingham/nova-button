@@ -4,7 +4,7 @@
             <label class="font-normal text-80">{{ field.label }}</label>
         </div>
         <div class="w-3/4 py-4">
-            <nova-button v-bind="$props" @clicked="visible = false" />
+            <nova-button v-bind="$props" @clicked="handleClick" />
         </div>
     </div>
 </template>
@@ -15,9 +15,14 @@ export default {
     data: () => ({
         visible: true
     }),
-    handleClick() {
-        if(this.field.reload) {
-            this.$router.go()
+    methods: {
+        handleClick() {
+            
+            this.visible = false
+            
+            if(this.field.reload) {
+                this.$router.go()
+            }
         }
     }
 }
