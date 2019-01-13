@@ -4,7 +4,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Nova button styles
+    | Style options
     |--------------------------------------------------------------------------
     |
     | This key value pair allows you to override the default nova button styles
@@ -26,5 +26,37 @@ return [
         'danger-outline' => 'cursor-pointer btn btn-default border border-danger text-danger ',
         'info-outline' => 'cursor-pointer btn btn-default border border-info text-info ',
         'grey-outline' => 'cursor-pointer btn btn-default border border-60 text-80 ',
-    ]
+
+        // add your own styles
+
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Global defaults
+    |--------------------------------------------------------------------------
+    |
+    | This package makes a few assumptions for initial global settings, seen below.
+    | This makes the intital usage as easy as declairing: Button::make('Notify')
+    | Edit these values if you want the defaults to be different globally.
+    |
+    */
+
+    'defaults' => [
+
+        'style' => 'link',
+
+        'submittingStyle' => null,
+        
+        'submittingText' => null,
+
+        'successStyle' => 'success-outline',
+
+        'successText' => 'Done!',
+
+        'errorStyle' => 'danger',
+
+        'errorText' => 'Error',
+
+    ],
 ];
