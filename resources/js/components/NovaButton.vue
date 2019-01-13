@@ -3,24 +3,30 @@
     <router-link 
         v-if="field.type == 'route'" 
         :to="field.route" 
-        class="nova-button" 
-        :class="field.classes"
-        v-html="field.text"
+        class="nova-button"
+        ref="novabutton" 
+        :class="buttonClasses"
+        :style="{ width: buttonWidth }"
+        v-html="buttonText"
     />
     <a 
         v-else-if="field.type == 'link'" 
         :href="field.link.href" 
         :target="field.link.target" 
-        class="nova-button" 
-        :class="field.classes"
-        v-html="field.text"
+        class="nova-button"
+        ref="novabutton" 
+        :class="buttonClasses"
+        :style="{ width: buttonWidth }"
+        v-html="buttonText"
     />
     <span v-else :class="ajaxClasses">
         <a 
             @click="handleClick"
-            :class="field.classes"
+            :class="buttonClasses"
             class="nova-button"
-            v-html="field.text"
+            :style="{ width: buttonWidth }"
+            ref="novabutton"
+            v-html="buttonText"
         />
     </span>
 </span>
@@ -29,7 +35,7 @@
 <style>
     .nova-button-submitting {
         pointer-events: none;
-        opacity: 0.7;
+        opacity: 0.5;
     }
     .nova-button-submitted {
         pointer-events: none;
@@ -41,14 +47,22 @@
 export default {
     props: ['resource', 'resourceName', 'resourceId', 'field'],
     data: () => ({
+        buttonClasses: [],
+        buttonWidth: null,
         submitting: false,
         submitted: false
     }),
+    mounted()
+    {
+        this.buttonClasses = this.field.classes;
+
+        this.$nextTick(function(){
+            this.buttonWidth = this.$refs.novabutton.clientWidth + 2 + 'px';
+        })
+    },
     methods: {
         async handleClick() {
-            
             try {
-                
                 const response = await this.post();
 
                 this.submitting = false;
@@ -76,12 +90,23 @@ export default {
         {
             this.submitting = true;
 
+            this.buttonClasses.push('text-center')
+
             let root = '/nova-vendor/nova-button/';
 
             return Nova.request().post(root + `${this.resourceName}/${this.resourceId}/${this.field.key}/`, {event: this.field.event});
         }
     },
     computed: {
+        buttonText: function() {
+
+            if(this.field.loadingText && this.submitting)
+            {
+                return this.field.loadingText;
+            }
+
+            return this.field.text;
+        },
         ajaxClasses: function()
         {
             return {'nova-button-submitting': this.submitting, 'nova-button-submitted': this.submitted}

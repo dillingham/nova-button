@@ -18,6 +18,8 @@ class Button extends Field
 
     public $showOnCreation = false;
 
+    public $loadingText = "Loading..";
+
     public $successMessage = "Complete!";
 
     public $errorMessage = "Whoops!";
@@ -74,6 +76,7 @@ class Button extends Field
             'classes' => $this->classes,
             'indexName' => $this->indexName,
             'indexAlign' => $this->indexAlign,
+            'loadingText' => $this->loadingText,
             'errorMessage' => $this->errorMessage,
             'successMessage' => $this->successMessage,
         ]);
@@ -117,6 +120,13 @@ class Button extends Field
     public function update($update)
     {
         $this->update = $update;
+
+        return $this;
+    }
+
+    public function loadingText($loadingText)
+    {
+        $this->loadingText = $loadingText;
 
         return $this;
     }
