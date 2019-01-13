@@ -6,7 +6,7 @@
         class="nova-button"
         ref="novabutton" 
         :class="buttonClasses"
-        :style="{ width: buttonWidth }"
+        :style="{ 'min-width': buttonWidth }"
         v-html="buttonText"
     />
     <a 
@@ -24,7 +24,7 @@
             @click="handleClick"
             :class="buttonClasses"
             class="nova-button"
-            :style="{ width: buttonWidth }"
+            :style="{ 'min-width': buttonWidth }"
             ref="novabutton"
             v-html="buttonText"
         />
