@@ -57,15 +57,19 @@ export default {
 
                 this.$emit('clicked');
 
-                this.$toasted.show(
-                    this.__(this.field.successMessage),
-                    {type: 'success'}
-                );
+                if(this.field.reload == false) {
+                    this.$toasted.show(
+                        this.__(this.field.successMessage),
+                        {type: 'success'}
+                    );
+                }
             } catch (error) {
-                this.$toasted.show(
-                    this.__(this.field.errorMessage),
-                    {type: 'error'}
-                );
+                if(this.field.reload == false) {
+                    this.$toasted.show(
+                        this.__(this.field.errorMessage),
+                        {type: 'error'}
+                    );
+                }
             }
         },
         post()
