@@ -85,6 +85,7 @@ Also [field authorization](https://nova.laravel.com/docs/1.0/resources/authoriza
 ### Page Reload
 After events are triggered, reload the page. 
 If you click many buttons, reloading will wait for all buttons to finish.
+If an error occurs, it will not reload the page.
 
 ```php
 Button::make('Notify')->reload()
