@@ -83,11 +83,35 @@ Button::make('Deactivate')->visible($this->is_active == true),
 Also [field authorization](https://nova.laravel.com/docs/1.0/resources/authorization.html#fields) via canSee() & [showing / hiding fields](https://nova.laravel.com/docs/1.0/resources/fields.html#showing-hiding-fields) hideFromIndex(), etc
 
 ### Page Reload
-After events are triggered, reload the page.
+After events are triggered, reload the page. 
+If you click many buttons, reloading will wait for all buttons to finish.
 
 ```php
 Button::make('Notify')->reload()
 ```
+
+### Confirm modal
+You can require a confirmation for descructive actions
+
+```php
+Button::make('Cancel Account')->confirm('Are you sure?')
+```
+
+### Button State
+When using ajax, you want visual feedback for the end user.
+```php
+Button::make('Remind User')->loadingText('Sending..')->successText('Sent!')
+```
+
+| Event | Text | Style | Description | 
+| -- | -- | -- | -- |
+| `loading` | ->loadingText('Loading..') | ->loadingStyle('grey-outline') | long running tasks | 
+| `success` | ->successText('Done!') | ->successStyle('succes') | completed & no errors |
+| `error` | ->errorText('Failed') | ->errorStyle('danger') | an exception took place |
+
+Each come with a global default, so only add methods when you want to change for specific resources.
+
+You can also change the global defaults in the `nova-button.php` config file for all buttons.
 
 ### Button styles
 
@@ -112,10 +136,11 @@ Each key adds classes from the `nova-button` config
 ```
 
 ### Style config
-Publish the nova-button config to add / edit [available styles](https://github.com/dillingham/nova-button/blob/master/config/nova-button.php)
+Publish the nova-button config to add / edit [available styles & defaults](https://github.com/dillingham/nova-button/blob/master/config/nova-button.php) 
 ```
 php artisan vendor:publish --tag=nova-button
 ```
+
 You can also add classes manually
 ```php
 Button::make('Refund')->classes('some-class')
@@ -123,16 +148,6 @@ Button::make('Refund')->classes('some-class')
 Also able to style the following css classes
 
 `.nova-button` and `.nova-button-{resource-name}`
-
-### Success & Error Messages
-
-Change the text displayed after the ajax event triggers
-
-```php
-Button::make('Confirm')
-    ->successMessage('Confirmed!')
-    ->errorMessage('Not confirmed')
-```
 ---
 
 # Example
