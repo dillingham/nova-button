@@ -42,6 +42,7 @@ public function fields(Request $request)
 - [Nova navigation](https://github.com/dillingham/nova-button#button-navigation)
 - [Visibility](https://github.com/dillingham/nova-button#button-visiblity)
 - [CSS classes](https://github.com/dillingham/nova-button#button-classes)
+- [Lens / button example](https://github.com/dillingham/nova-button#example)
 
 
 ### Button events
