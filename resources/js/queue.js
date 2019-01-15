@@ -3,6 +3,7 @@ class Queue
     constructor() {
         this.items = [];
         this.hasSuccess = false;
+        this.hasError = false;
     }
 
     add(id)
@@ -21,10 +22,10 @@ class Queue
     {
         return this.items.length;
     }
-    
+
     allowsReload()
     {
-        return this.count() == 0 && this.hasSuccess;
+        return this.count() == 0 && this.hasSuccess && this.hasError == false;
     }
 }
 
