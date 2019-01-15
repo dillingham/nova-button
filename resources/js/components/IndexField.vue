@@ -4,17 +4,23 @@
             :field="field"
             :resourceName="resourceName"
             :resourceId="$parent.resource['id'].value"
-            @clicked="handleClick" />
+            @finished="reload"
+        />
     </span>
 </template>
 
 <script>
+
+import { queue } from '../queue.js';
+
 export default {
     props: ['resourceName', 'field'],
     methods: {
-        handleClick()  {
-            if(this.field.reload) {
-                this.$router.go()
+        reload()  {
+            if(this.field.reload && queue.allowsReload()) {
+                window.setTimeout(() => {
+                    this.$router.go()
+                }, 400)
             }
         }
     }
