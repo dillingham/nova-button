@@ -31,6 +31,17 @@ public function fields(Request $request)
 }
 ```
 
+## Table of contents
+- [Button styles](https://github.com/dillingham/nova-button#button-styles)
+- [Trigger events](https://github.com/dillingham/nova-button#button-events)
+- [Event text / style](https://github.com/dillingham/nova-button#button-state)
+- [Confirm modal](https://github.com/dillingham/nova-button#confirm-modal)
+- [Success reload](https://github.com/dillingham/nova-button#page-reload)
+- [Nova navigation](https://github.com/dillingham/nova-button#button-navigation)
+- [Visibility](https://github.com/dillingham/nova-button#button-visiblity)
+- [CSS classes](https://github.com/dillingham/nova-button#button-classes)
+
+
 ### Button events
 
 By default, clicking the button will trigger a backend event via ajax.
@@ -82,7 +93,7 @@ Button::make('Deactivate')->visible($this->is_active == true),
 
 Also [field authorization](https://nova.laravel.com/docs/1.0/resources/authorization.html#fields) via canSee() & [showing / hiding fields](https://nova.laravel.com/docs/1.0/resources/fields.html#showing-hiding-fields) hideFromIndex(), etc
 
-### Page Reload
+### Page reload
 After events are triggered, reload the page. 
 
 ```php
@@ -129,7 +140,7 @@ Publish the nova-button config to add / edit [available styles & defaults](https
 php artisan vendor:publish --tag=nova-button -- force
 ```
 
-### Button event feedback
+### Button state
 When using ajax, you want visual feedback for the end user.
 ```php
 Button::make('Remind User')->loadingText('Sending..')->successText('Sent!')
