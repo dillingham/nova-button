@@ -27,9 +27,6 @@ return [
         'danger-outline' => 'cursor-pointer btn btn-default border border-danger text-danger ',
         'info-outline' => 'cursor-pointer btn btn-default border border-info text-info ',
         'grey-outline' => 'cursor-pointer btn btn-default border border-60 text-80 ',
-
-        // add your own styles
-
     ],
 
     /*
@@ -44,20 +41,12 @@ return [
     */
 
     'defaults' => [
-
         'style' => 'link',
-
-        'submittingStyle' => null,
-        
-        'submittingText' => null,
-
-        'successStyle' => 'success-outline',
-
+        'submittingStyle' => 'grey-outline',
+        'submittingText' => 'Loading',
+        'successStyle' => 'success',
         'successText' => 'Done!',
-
         'errorStyle' => 'danger',
-
-        'errorText' => 'Error',
-
+        'errorText' => 'Failed',
     ],
 ];
