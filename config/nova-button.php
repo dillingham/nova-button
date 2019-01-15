@@ -6,9 +6,9 @@ return [
     | Global defaults
     |--------------------------------------------------------------------------
     |
-    | This package makes a few assumptions for initial global settings, seen below.
-    | Edit these values if you want the defaults to be different globally.
-    | Scroll further down for the general Tailwind-CSS classes
+    | This package makes a few assumptions for initial global settings, seen below
+    | Edit these values if you want the defaults to be different globally
+    | Scroll further down for the general Tailwind-CSS style classes
     */
 
     'defaults' => [
@@ -53,7 +53,7 @@ return [
         'warning-link' => 'cursor-pointer dim inline-block text-warning font-bold btn btn-link',
         'danger-link' => 'cursor-pointer dim inline-block text-danger font-bold btn btn-link',
         'info-link' => 'cursor-pointer dim inline-block text-info font-bold btn btn-link',
-        'grey-link' => 'cursor-pointer dim inline-block text-60 font-bold btn btn-link',
+        'grey-link' => 'cursor-pointer dim inline-block text-80 font-bold btn btn-link',
         // Custom
         'custom' => 'bg-orange',
         
