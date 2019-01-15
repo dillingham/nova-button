@@ -138,7 +138,7 @@ Each key adds classes from the `nova-button` config
 ### Style config
 Publish the nova-button config to add / edit [available styles & defaults](https://github.com/dillingham/nova-button/blob/master/config/nova-button.php) 
 ```
-php artisan vendor:publish --tag=nova-button
+php artisan vendor:publish --tag=nova-button -- force
 ```
 
 You can also add classes manually
