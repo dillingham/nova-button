@@ -48,12 +48,12 @@ return [
         'info-outline' => 'cursor-pointer btn btn-default border border-info text-info ',
         'grey-outline' => 'cursor-pointer btn btn-default border border-60 text-80 ',
         // Link
-        'success-link' => 'cursor-pointer dim inline-block text-success font-bold no-underline',
-        'primary-link' => 'cursor-pointer dim inline-block text-primary font-bold no-underline',
-        'warning-link' => 'cursor-pointer dim inline-block text-warning font-bold no-underline',
-        'danger-link' => 'cursor-pointer dim inline-block text-danger font-bold no-underline',
-        'info-link' => 'cursor-pointer dim inline-block text-info font-bold no-underline',
-        'grey-link' => 'cursor-pointer dim inline-block text-60 font-bold no-underline',
+        'success-link' => 'cursor-pointer dim inline-block text-success font-bold btn btn-link',
+        'primary-link' => 'cursor-pointer dim inline-block text-primary font-bold btn btn-link',
+        'warning-link' => 'cursor-pointer dim inline-block text-warning font-bold btn btn-link',
+        'danger-link' => 'cursor-pointer dim inline-block text-danger font-bold btn btn-link',
+        'info-link' => 'cursor-pointer dim inline-block text-info font-bold btn btn-link',
+        'grey-link' => 'cursor-pointer dim inline-block text-60 font-bold btn btn-link',
         // Custom
         'custom' => 'bg-orange',
         
