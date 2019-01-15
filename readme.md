@@ -7,6 +7,8 @@ Nova package for rendering buttons on index, detail and lens views.
 
 ![nova-button](https://user-images.githubusercontent.com/29180903/50742708-dffeb600-11dc-11e9-9eed-36f42166c7c4.png)
 
+### Installation
+
 ```bash
 composer require dillingham/nova-button
 ```
