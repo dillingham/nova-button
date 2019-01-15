@@ -101,22 +101,6 @@ Button::make('Cancel Account')->confirm('Are you sure?'),
 Button::make('Cancel Account')->confirm('title', 'content'),
 ```
 
-### Button State
-When using ajax, you want visual feedback for the end user.
-```php
-Button::make('Remind User')->loadingText('Sending..')->successText('Sent!')
-```
-
-| Event | Text | Style | Description | 
-| -- | -- | -- | -- |
-| `loading` | `->loadingText('Loading..')` | `->loadingStyle('grey-outline')` | long running tasks | 
-| `success` | `->successText('Done!')` | `->successStyle('succes')` | completed & no errors |
-| `error` | `->errorText('Failed')` | `->errorStyle('danger')` | an exception took place |
-
-Each come with a global default, so only add methods when you want to change for specific resources.
-
-You can also change the [global defaults](https://github.com/dillingham/nova-button/blob/master/config/nova-button.php) in the `nova-button.php` config file for all buttons.
-
 ### Button styles
 
 This package makes use of [tailwind-css](https://tailwindcss.com) classes / default: `link`
@@ -145,7 +129,24 @@ Publish the nova-button config to add / edit [available styles & defaults](https
 php artisan vendor:publish --tag=nova-button -- force
 ```
 
+### Button Event State
+When using ajax, you want visual feedback for the end user.
+```php
+Button::make('Remind User')->loadingText('Sending..')->successText('Sent!')
+```
+
+| Event | Text | Style | Description | 
+| -- | -- | -- | -- |
+| `loading` | `->loadingText('Loading..')` | `->loadingStyle('grey-outline')` | long running tasks | 
+| `success` | `->successText('Done!')` | `->successStyle('succes')` | completed & no errors |
+| `error` | `->errorText('Failed')` | `->errorStyle('danger')` | an exception took place |
+
+Each has a global default in the nova-button cofig. Add methods when you want to change for specific resources.
+
+### Button Classes
+
 You can also add classes manually
+
 ```php
 Button::make('Refund')->classes('some-class')
 ```
