@@ -34,6 +34,8 @@ class Button extends Field
 
     public $link = null;
 
+    public $confirm = null;
+    
     public $indexAlign = 'right';
 
     public $errorText = null;
@@ -76,6 +78,7 @@ class Button extends Field
             'label' => $this->label,
             'route' => $this->route,
             'reload' => $this->reload,
+            'confirm' => $this->confirm,
             'visible' => $this->visible,
             'classes' => $this->classes,
             'indexName' => $this->indexName,
@@ -120,6 +123,25 @@ class Button extends Field
     public function classes($classes)
     {
         $this->classes[] = $classes;
+
+        return $this;
+    }
+
+    public function confirm($message1 = null, $message2 = null)
+    {
+        $this->confirm = [
+            'title' => 'Confirmation',
+            'body' => null
+        ];
+
+        if ($message1 && $message2 == null) {
+            $this->confirm['body'] = $message1;
+        }
+
+        if ($message1 && $message2) {
+            $this->confirm['title'] = $message1;
+            $this->confirm['body'] = $message2;
+        }
 
         return $this;
     }

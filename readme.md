@@ -95,7 +95,8 @@ Button::make('Notify')->reload()
 You can require a confirmation for descructive actions
 
 ```php
-Button::make('Cancel Account')->confirm('Are you sure?')
+Button::make('Cancel Account')->confirm('Are you sure?'),
+Button::make('Cancel Account')->confirm('title', 'content'),
 ```
 
 ### Button State
