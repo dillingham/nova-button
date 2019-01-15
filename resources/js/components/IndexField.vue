@@ -1,5 +1,5 @@
 <template>
-    <span :class="{'block text-right': field.indexAlign == 'right'}">
+    <span v-if="field.visible" :class="{'block text-right': field.indexAlign == 'right'}">
         <nova-button 
             :field="field"
             :resourceName="resourceName"
