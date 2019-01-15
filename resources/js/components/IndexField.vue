@@ -10,11 +10,7 @@
         </span>
         <div v-else :class="{'block text-right': field.indexAlign == 'right'}">
             <span>
-                <a
-                    :class="field.classes"
-                    v-html="field.text"
-                    @click="openModal = true"
-                />
+                <a :class="field.classes" v-html="field.text" @click="openModal = true" />
             </span>
             <portal to="modals">
                 <transition name="fade">
@@ -24,13 +20,18 @@
                                 <heading :level="2" class="mb-6" v-html="field.confirm.title"></heading>
                                 <p class="text-80 leading-normal" v-html="field.confirm.body"></p>
                             </div>
-                            <div class="border-t border-50 px-6 py-3 ml-auto flex items-center" style="min-height: 70px; flex-direction: row-reverse">
-                                <a class="btn text-80 font-normal px-3 mr-3 btn-link" style="order:2;" @click.prevent="openModal = false">Cancel</a>
+                            <div 
+                                class="border-t border-50 px-6 py-3 ml-auto flex items-center" 
+                                style="min-height: 70px; flex-direction: row-reverse">
+                                <a 
+                                    style="order:2;" 
+                                    @click.prevent="openModal = false"
+                                    class="cursor-pointer btn text-80 font-normal px-3 mr-3 btn-link" >Cancel</a>
                                 <nova-button 
                                     :field="field"
+                                    @finished="modalReload"
                                     :resourceName="resourceName"
                                     :resourceId="$parent.resource['id'].value"
-                                    @finished="modalReload"
                                 />
                             </div>
                          </div>
