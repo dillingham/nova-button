@@ -84,12 +84,14 @@ Also [field authorization](https://nova.laravel.com/docs/1.0/resources/authoriza
 
 ### Page Reload
 After events are triggered, reload the page. 
-If you click many buttons, reloading will wait for all buttons to finish.
-If an error occurs, it will not reload the page.
 
 ```php
 Button::make('Notify')->reload()
 ```
+If you click many buttons, reloading will wait for all buttons to finish.
+
+If an error occurs, it will not reload the page.
+
 
 ### Confirm modal
 You can require a confirmation for descructive actions
@@ -107,9 +109,9 @@ Button::make('Remind User')->loadingText('Sending..')->successText('Sent!')
 
 | Event | Text | Style | Description | 
 | -- | -- | -- | -- |
-| `loading` | ->loadingText('Loading..') | ->loadingStyle('grey-outline') | long running tasks | 
-| `success` | ->successText('Done!') | ->successStyle('succes') | completed & no errors |
-| `error` | ->errorText('Failed') | ->errorStyle('danger') | an exception took place |
+| `loading` | `->loadingText('Loading..')` | `->loadingStyle('grey-outline')` | long running tasks | 
+| `success` | `->successText('Done!')` | `->successStyle('succes')` | completed & no errors |
+| `error` | `->errorText('Failed')` | `->errorStyle('danger')` | an exception took place |
 
 Each come with a global default, so only add methods when you want to change for specific resources.
 
@@ -124,7 +126,7 @@ Button::make('Confirm')->style('primary')
 ```
 
 | Fill  | Outline | Link |
-|---|---|
+|---|---|---|
 | primary | primary-outline | primary-link |
 | success | success-outline | success-link |
 | danger | danger-outline | danger-link |
@@ -150,6 +152,7 @@ Button::make('Refund')->classes('some-class')
 Also able to style the following css classes
 
 `.nova-button` and `.nova-button-{resource-name}`
+
 ---
 
 # Example
