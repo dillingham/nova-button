@@ -6,9 +6,9 @@ use Laravel\Nova\Fields\Field;
 
 class Button extends Field
 {
+    public $style = null;
+    
     public $classes = [];
-
-    public $style = 'link';
 
     public $reload = false;
     
@@ -18,17 +18,11 @@ class Button extends Field
 
     public $showOnCreation = false;
 
-    public $loadingText = "Loading..";
-
-    public $successMessage = "Complete!";
-
-    public $errorMessage = "Whoops!";
-    
     public $component = 'nova-button';
 
     public $event = "NovaButton\Events\ButtonClick";
 
-    public $text = "Click Me";
+    public $text = null;
 
     public $type = null;
 
@@ -42,11 +36,25 @@ class Button extends Field
 
     public $indexAlign = 'right';
 
+    public $errorText = null;
+    
+    public $errorClasses = null;
+    
+    public $loadingText = null;
+
+    public $loadingClasses = null;
+
+    public $successText = null;
+
+    public $successClasses = null;
+
     public function __construct($name, $key = null)
     {
         $this->name = $name;
         $this->text = $name;
         $this->key = $key ?? kebab_case($name);
+        $this->config = config('nova-button');
+        $this->addDefaultSettings();
     }
 
     public function resolve($resource, $attribute = null)
@@ -54,14 +62,10 @@ class Button extends Field
         parent::resolve($resource, $attribute);
 
         $this->classes[] = 'nova-button-' . strtolower(class_basename($resource));
-
-        if ($this->visible == false) {
-            $this->canSee(function () {
-                return false;
-            });
-        }
-        
-        $this->classes[] = array_get($this->styleConfig(), $this->style);
+        $this->classes[] = array_get($this->config, "styles.{$this->style}");
+        $this->loadingClasses = array_get($this->config, "styles.{$this->loadingStyle}");
+        $this->successClasses = array_get($this->config, "styles.{$this->successStyle}");
+        $this->errorClasses = array_get($this->config, "styles.{$this->errorStyle}");
         
         $this->withMeta([
             'key' => $this->key,
@@ -76,15 +80,39 @@ class Button extends Field
             'classes' => $this->classes,
             'indexName' => $this->indexName,
             'indexAlign' => $this->indexAlign,
+            'errorText' => $this->errorText,
+            'errorClasses' => $this->errorClasses,
+            'successText' => $this->successText,
+            'successClasses' => $this->successClasses,
             'loadingText' => $this->loadingText,
-            'errorMessage' => $this->errorMessage,
-            'successMessage' => $this->successMessage,
+            'loadingClasses' => $this->loadingClasses,
         ]);
     }
     
     public function style($style)
     {
         $this->style = $style;
+
+        return $this;
+    }
+
+    public function loadingStyle($loadingStyle)
+    {
+        $this->loadingStyle = $loadingStyle;
+
+        return $this;
+    }
+
+    public function successStyle($successStyle)
+    {
+        $this->successStyle = $successStyle;
+
+        return $this;
+    }
+
+    public function errorStyle($errorStyle)
+    {
+        $this->errorStyle = $errorStyle;
 
         return $this;
     }
@@ -131,16 +159,16 @@ class Button extends Field
         return $this;
     }
 
-    public function successMessage($successMessage)
+    public function successText($successText)
     {
-        $this->successMessage = $successMessage;
+        $this->successText = $successText;
 
         return $this;
     }
 
-    public function errorMessage($errorMessage)
+    public function errorText($errorText)
     {
-        $this->errorMessage = $errorMessage;
+        $this->errorText = $errorText;
 
         return $this;
     }
@@ -216,16 +244,6 @@ class Button extends Field
             'name' => $name,
             'params' => $params
         ];
-
-        // if ($name != 'index') {
-
-        //     $this->route['params'] = array_merge($this->route['params'], [
-        //         'viaResource' => '', // users
-        //         'viaResourceId' => '', // id
-        //         'viaRelationship' => '' // users
-        //         // maybe add in vue instead
-        //     ]);
-        // }
             
         $this->formatResourceName();
         
@@ -239,11 +257,34 @@ class Button extends Field
         );
     }
 
-    public function styleConfig()
+    public function addDefaultSettings()
     {
-        return array_merge(
-            ['link' => 'cursor-pointer dim inline-block text-primary font-bold no-underline'],
-            config('nova-button.styles')
-        );
+        $this->addLinkFallbacks();
+        $this->style = array_get($this->config, "defaults.style", 'link-primary');
+        $this->loadingText = array_get($this->config, "defaults.loadingText", 'Loading');
+        $this->loadingStyle = array_get($this->config, "defaults.loadingStyle", str_replace('primary', 'grey', $this->style));
+        $this->errorText = array_get($this->config, "defaults.errorText", 'Error!');
+        $this->errorStyle = array_get($this->config, "defaults.errorStyle", str_replace('primary', 'danger', $this->style));
+        $this->successText = array_get($this->config, "defaults.successText", 'Success!');
+        $this->successStyle = array_get($this->config, "defaults.successStyle", str_replace('primary', 'success', $this->style));
+    }
+
+    public function addLinkFallbacks()
+    {
+        if (!array_has($this->config, 'styles.link-primary')) {
+            $this->config['styles']['link-primary'] = 'cursor-pointer dim inline-block text-primary font-bold no-underline';
+        }
+
+        if (!array_has($this->config, 'styles.link-success')) {
+            $this->config['styles']['link-success'] = 'cursor-pointer dim inline-block text-success font-bold no-underline';
+        }
+
+        if (!array_has($this->config, 'styles.link-grey')) {
+            $this->config['styles']['link-grey'] = 'cursor-pointer dim inline-block text-grey font-bold no-underline';
+        }
+
+        if (!array_has($this->config, 'styles.link-danger')) {
+            $this->config['styles']['link-danger'] = 'cursor-pointer dim inline-block text-danger font-bold no-underline';
+        }
     }
 }
