@@ -129,7 +129,7 @@ Publish the nova-button config to add / edit [available styles & defaults](https
 php artisan vendor:publish --tag=nova-button -- force
 ```
 
-### Button Event State
+### Button event feedback
 When using ajax, you want visual feedback for the end user.
 ```php
 Button::make('Remind User')->loadingText('Sending..')->successText('Sent!')
@@ -141,9 +141,9 @@ Button::make('Remind User')->loadingText('Sending..')->successText('Sent!')
 | `success` | `->successText('Done!')` | `->successStyle('succes')` | completed & no errors |
 | `error` | `->errorText('Failed')` | `->errorStyle('danger')` | an exception took place |
 
-Each has a global default in the nova-button cofig. Add methods when you want to change for specific resources.
+Each has a global default in the `nova-button` config. Add methods when you want to change for specific resources.
 
-### Button Classes
+### Button classes
 
 You can also add classes manually
 
