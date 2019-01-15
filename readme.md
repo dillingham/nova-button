@@ -33,7 +33,7 @@ public function fields(Request $request)
 }
 ```
 
-[Styles](https://github.com/dillingham/nova-button#button-styles) | [Events](https://github.com/dillingham/nova-button#button-events) [Event text / style](https://github.com/dillingham/nova-button#button-state) | [Navigation](https://github.com/dillingham/nova-button#button-navigation) | [Confirm](https://github.com/dillingham/nova-button#confirm-modal) | [Reload](https://github.com/dillingham/nova-button#page-reload) | [Visibility](https://github.com/dillingham/nova-button#button-visiblity) | [CSS classes](https://github.com/dillingham/nova-button#button-classes) | [Lens example](https://github.com/dillingham/nova-button#example)
+[Styles](https://github.com/dillingham/nova-button#button-styles) | [Events](https://github.com/dillingham/nova-button#button-events) | [Event text / style](https://github.com/dillingham/nova-button#button-state) | [Navigation](https://github.com/dillingham/nova-button#button-navigation) | [Confirm](https://github.com/dillingham/nova-button#confirm-modal) | [Reload](https://github.com/dillingham/nova-button#page-reload) | [Visibility](https://github.com/dillingham/nova-button#button-visiblity) | [CSS classes](https://github.com/dillingham/nova-button#button-classes) | [Lens example](https://github.com/dillingham/nova-button#example)
 
 ### Button events
 
