@@ -111,7 +111,7 @@ Button::make('Remind User')->loadingText('Sending..')->successText('Sent!')
 
 Each come with a global default, so only add methods when you want to change for specific resources.
 
-You can also change the global defaults in the `nova-button.php` config file for all buttons.
+You can also change the [global defaults](https://github.com/dillingham/nova-button/blob/master/config/nova-button.php) in the `nova-button.php` config file for all buttons.
 
 ### Button styles
 
@@ -121,14 +121,14 @@ This package makes use of [tailwind-css](https://tailwindcss.com) classes / defa
 Button::make('Confirm')->style('primary')
 ```
 
-| Fill  | Outline |
+| Fill  | Outline | Link |
 |---|---|
-| primary | primary-outline |
-| success | success-outline |
-| danger | danger-outline |
-| warning | warning-outline |
-| info | info-outline |
-| grey | grey-outline |
+| primary | primary-outline | primary-link |
+| success | success-outline | success-link |
+| danger | danger-outline | danger-link |
+| warning | warning-outline | warning-link |
+| info | info-outline | info-link |
+| grey | grey-outline | grey-link |
 
 Each key adds classes from the `nova-button` config
 ```php
