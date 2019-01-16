@@ -5,9 +5,9 @@
 
 Nova package for rendering buttons on index, detail and lens views.
 
-![nova-button](https://user-images.githubusercontent.com/29180903/50742708-dffeb600-11dc-11e9-9eed-36f42166c7c4.png)
-
 Use buttons to trigger backend events, navigate nova routes or visit links.
+
+![nova-button](https://user-images.githubusercontent.com/29180903/50742708-dffeb600-11dc-11e9-9eed-36f42166c7c4.png)
 
 ### Installation
 
@@ -30,9 +30,13 @@ public function fields(Request $request)
 }
 ```
 
+---
+
 Quick links: [Button Styles](https://github.com/dillingham/nova-button#button-styles) | [Event text / style](https://github.com/dillingham/nova-button#button-state) | [Navigation](https://github.com/dillingham/nova-button#button-navigation) | [CSS classes](https://github.com/dillingham/nova-button#button-classes) | [Lens example](https://github.com/dillingham/nova-button#example)
 
-### Button events
+---
+
+### Backend events
 
 By default, clicking the button will trigger a backend event via ajax.
 
@@ -55,7 +59,7 @@ Button::make('Notify')->event('App\Events\NotifyRequested')
 
 You register listeners in your EventServiceProvider
 
-### Button navigation
+### Navigation
 
 You can also choose to navigate any of the Nova routes
 
@@ -73,7 +77,7 @@ Button::make('Text')->link('https://nova.laravel.com')
 Button::make('Text')->link('https://nova.laravel.com', '_self')
 ```
 
-### Button visiblity
+### Visiblity
 
 You will likely want to show or hide buttons depending on model values
 ```php
@@ -83,7 +87,7 @@ Button::make('Deactivate')->visible($this->is_active == true),
 
 Also [field authorization](https://nova.laravel.com/docs/1.0/resources/authorization.html#fields) via canSee() & [showing / hiding fields](https://nova.laravel.com/docs/1.0/resources/fields.html#showing-hiding-fields) hideFromIndex(), etc
 
-### Page reload
+### Reload
 After events are triggered, reload the page. 
 
 ```php
@@ -94,7 +98,7 @@ If you click many buttons, reloading will wait for all buttons to finish.
 If an error occurs, it will not reload the page.
 
 
-### Confirm modal
+### Confirm
 You can require a confirmation for descructive actions
 
 ```php
