@@ -7,17 +7,14 @@ Nova package for rendering buttons on index, detail and lens views.
 
 ![nova-button](https://user-images.githubusercontent.com/29180903/50742708-dffeb600-11dc-11e9-9eed-36f42166c7c4.png)
 
+Use buttons to trigger backend events, navigate nova routes or visit links.
+
 ### Installation
 
 ```bash
 composer require dillingham/nova-button
 ```
-
-Use it to trigger backend events, navigate nova routes or visit links.
-
-Comes with alot of flexibility, style options and ability to customize .
-
-
+---
 
 ```php
 use NovaButton\Button;
@@ -33,7 +30,7 @@ public function fields(Request $request)
 }
 ```
 
-Quick links: [Styles](https://github.com/dillingham/nova-button#button-styles) | [Events](https://github.com/dillingham/nova-button#button-events) | [Event text / style](https://github.com/dillingham/nova-button#button-state) | [Navigation](https://github.com/dillingham/nova-button#button-navigation) | [Confirm](https://github.com/dillingham/nova-button#confirm-modal) | [Reload](https://github.com/dillingham/nova-button#page-reload) | [Visibility](https://github.com/dillingham/nova-button#button-visiblity) | [CSS classes](https://github.com/dillingham/nova-button#button-classes) | [Lens example](https://github.com/dillingham/nova-button#example)
+Quick links: [Button Styles](https://github.com/dillingham/nova-button#button-styles) | [Event text / style](https://github.com/dillingham/nova-button#button-state) | [Navigation](https://github.com/dillingham/nova-button#button-navigation) | [CSS classes](https://github.com/dillingham/nova-button#button-classes) | [Lens example](https://github.com/dillingham/nova-button#example)
 
 ### Button events
 
@@ -105,6 +102,24 @@ Button::make('Cancel Account')->confirm('Are you sure?'),
 Button::make('Cancel Account')->confirm('title', 'content'),
 ```
 
+### Button state
+When using events, you want visual feedback for the end user.
+
+This is especially useful for long running listeners.
+
+```php
+Button::make('Remind User')->loadingText('Sending..')->successText('Sent!')
+```
+
+| Event | Text | Style |
+| -- | -- | -- |
+| loading | ```loadingText('Loading..')``` | `loadingStyle('grey-outline')` |
+| success | `successText('Done!')` | `successStyle('succes')` |
+| error | `errorText('Failed')` | `errorStyle('danger')` |
+
+Defaults defined in the `nova-button` config. Add methods when you want to change for specific resources
+
+
 ### Button styles
 
 This package makes use of [tailwind-css](https://tailwindcss.com) classes / default: `link`
@@ -133,20 +148,6 @@ Publish the nova-button config to add / edit [available styles & defaults](https
 php artisan vendor:publish --tag=nova-button -- force
 ```
 
-### Button state
-When using ajax, you want visual feedback for the end user.
-```php
-Button::make('Remind User')->loadingText('Sending..')->successText('Sent!')
-```
-
-| Event | Text | Style | Description | 
-| -- | -- | -- | -- |
-| `loading` | `->loadingText('Loading..')` | `->loadingStyle('grey-outline')` | long running tasks | 
-| `success` | `->successText('Done!')` | `->successStyle('succes')` | completed & no errors |
-| `error` | `->errorText('Failed')` | `->errorStyle('danger')` | an exception took place |
-
-Each has a global default in the `nova-button` config. Add methods when you want to change for specific resources.
-
 ### Button classes
 
 You can also add classes manually
@@ -156,7 +157,13 @@ Button::make('Refund')->classes('some-class')
 ```
 Also able to style the following css classes
 
-`.nova-button` and `.nova-button-{resource-name}`
+```css
+.nova-button
+.nova-button-{resource-name}
+.nova-button-success
+.nova-button-error
+.nova-button-loading
+```
 
 ---
 
