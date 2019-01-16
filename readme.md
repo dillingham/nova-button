@@ -117,7 +117,7 @@ Button::make('Remind User')->loadingText('Sending..')->successText('Sent!')
 
 | Event | Text | Style |
 | -- | -- | -- |
-| loading | ```loadingText('Loading..')``` | `loadingStyle('grey-outline')` |
+| loading | `loadingText('Loading..')` | `loadingStyle('grey-outline')` |
 | success | `successText('Done!')` | `successStyle('succes')` |
 | error | `errorText('Failed')` | `errorStyle('danger')` |
 
