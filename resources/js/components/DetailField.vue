@@ -8,7 +8,7 @@
                 <nova-button 
                     :field="field"
                     :resourceName="resourceName"
-                    :resourceId="$parent.resource['id'].value"
+                    :resourceId="resourceId"
                     @finished="reload"
                 />
             </span>
