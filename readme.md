@@ -14,7 +14,8 @@ Use buttons to trigger backend events, navigate nova routes or visit links.
 ```bash
 composer require dillingham/nova-button
 ```
----
+
+### Usage
 
 ```php
 use NovaButton\Button;
@@ -29,8 +30,6 @@ public function fields(Request $request)
     ];
 }
 ```
-
----
 
 Quick links: [Button Styles](https://github.com/dillingham/nova-button#button-styles) | [Event text / style](https://github.com/dillingham/nova-button#button-state) | [Navigation](https://github.com/dillingham/nova-button#button-navigation) | [CSS classes](https://github.com/dillingham/nova-button#button-classes) | [Lens example](https://github.com/dillingham/nova-button#example)
 
