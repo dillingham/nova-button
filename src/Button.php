@@ -3,6 +3,8 @@
 namespace NovaButton;
 
 use Laravel\Nova\Fields\Field;
+use Laravel\Nova\Filters\Filter;
+use Laravel\Nova\Resource;
 
 class Button extends Field
 {
@@ -205,7 +207,7 @@ class Button extends Field
     public function index($namespace)
     {
         $this->route('index', [
-            'resourceName' => $namespace
+            'resourceName' => $this->normalizeResourceName($namespace)
         ]);
 
         return $this;
@@ -214,7 +216,7 @@ class Button extends Field
     public function detail($namespace, $id)
     {
         $this->route('detail', [
-            'resourceName' => $namespace,
+            'resourceName' => $this->normalizeResourceName($namespace),
             'resourceId' => $id,
         ]);
 
@@ -224,7 +226,7 @@ class Button extends Field
     public function create($namespace)
     {
         $this->route('create', [
-            'resourceName' => $namespace
+            'resourceName' => $this->normalizeResourceName($namespace)
         ]);
 
         return $this;
@@ -233,7 +235,7 @@ class Button extends Field
     public function edit($namespace, $id)
     {
         $this->route('edit', [
-            'resourceName' => $namespace,
+            'resourceName' => $this->normalizeResourceName($namespace),
             'resourceId' => $id,
         ]);
 
@@ -243,7 +245,7 @@ class Button extends Field
     public function lens($namespace, $key)
     {
         $this->route('lens', [
-            'resourceName' => $namespace,
+            'resourceName' => $this->normalizeResourceName($namespace),
             'lens' => $key
         ]);
 
@@ -264,19 +266,41 @@ class Button extends Field
 
         $this->route = [
             'name' => $name,
-            'params' => $params
+            'params' => $params,
+            'query' => [],
         ];
-            
-        $this->formatResourceName();
-        
+
         return $this;
     }
 
-    public function formatResourceName()
+    /**
+     * Add filters to index view.
+     *
+     * @param  array $filters
+     * @return $this
+     */
+    public function withFilters(array $filters)
     {
-        $this->route['params']['resourceName'] = strtolower(
-            str_plural(class_basename($this->route['params']['resourceName']))
-        );
+        $key = $this->route['params']['resourceName'] . '_filter';
+
+        $this->route['query'][$key] = base64_encode(json_encode(collect($filters)->map(function ($value, $key) {
+            return [
+                'class' => $key,
+                'value' => $value
+            ];
+        })->values()));
+
+        return $this;
+    }
+
+    /**
+     * @param  string $namespace
+     * @return string
+     */
+    protected function normalizeResourceName($namespace)
+    {
+        return class_exists($namespace) && is_subclass_of($namespace, Resource::class)
+            ? $namespace::uriKey() : $namespace;
     }
 
     public function addDefaultSettings()
