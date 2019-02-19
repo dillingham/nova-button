@@ -1,26 +1,26 @@
 <template>
 <span v-if="field.visible">
-    <router-link 
-        v-if="field.type == 'route'" 
-        :to="field.route" 
-        ref="novabutton" 
+    <router-link
+        v-if="field.type == 'route'"
+        :to="field.route"
+        ref="novabutton"
         class="nova-button"
         v-html="buttonText"
         :class="buttonClasses"
         :style="{'min-width': buttonWidth}"
     />
-    <a 
-        v-else-if="field.type == 'link'" 
-        ref="novabutton" 
+    <a
+        v-else-if="field.type == 'link'"
+        ref="novabutton"
         v-html="buttonText"
         class="nova-button"
         :class="buttonClasses"
-        :href="field.link.href" 
-        :target="field.link.target" 
+        :href="field.link.href"
+        :target="field.link.target"
         :style="{'min-width': buttonWidth}"
     />
     <span v-else :class="ajaxClasses">
-        <a 
+        <a
             ref="novabutton"
             v-html="buttonText"
             @click="handleClick"
@@ -60,14 +60,14 @@ export default {
     },
     methods: {
         async handleClick() {
-            
+
             queue.add(this.resourceId)
 
             this.$emit('clicked');
-            
+
             try {
                 const response = await this.post();
-                this.success = true;                
+                this.success = true;
                 this.loading = false;
                 queue.hasSuccess = true;
                 queue.remove(this.resourceId);
@@ -93,19 +93,19 @@ export default {
             let root = '/nova-vendor/nova-button/';
 
             return Nova.request()
-                .post(root + `${this.resourceName}/${this.resourceId}/${this.field.key}/`, {
+                .post(root + `${this.resourceName}/${this.resourceId}/${this.field.key}`, {
                     event: this.field.event
                 })
         }
     },
     computed: {
         buttonText: function() {
-        
+
             if(this.error && this.field.errorText)
             {
                 return this.field.errorText;
             }
-            
+
             if(this.success && this.field.successText)
             {
                 return this.field.successText;
@@ -119,7 +119,7 @@ export default {
             return this.field.text;
         },
         buttonClasses: function() {
-            
+
             if(this.error && this.field.errorClasses.length)
             {
                 return this.field.errorClasses + ' text-center nova-button-error';
