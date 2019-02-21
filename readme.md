@@ -64,6 +64,11 @@ You can also choose to navigate any of the Nova routes
 
 ```php
 Button::make('Text')->index('App\Nova\User')
+Button::make('Text')->index('App\Nova\User')
+    ->withFilters([
+        'App\Nova\Filters\UserOrders' => 1,
+        'App\Nova\Filters\OrderStatus' => 'active',
+    ])
 Button::make('Text')->detail('App\Nova\User', $this->user_id)
 Button::make('Text')->create('App\Nova\User')
 Button::make('Text')->edit('App\Nova\User', $this->user_id)
@@ -187,7 +192,7 @@ class UsersWithoutConfirmation extends Lens
     {
         return $query
             ->select(['users.id', 'users.name'])
-            ->whereNull('email_verified_at'); <--
+            ->whereNull('email_verified_at');
     }
 
     public function fields(Request $request)
@@ -217,7 +222,7 @@ class ConfirmUser
     }
 }
 ```
-^ No `key` check required when you register an event for this listener
+No `key` check required when you register an event for this listener
 
 ```php
 Button::make('Confirm')->event('App\Events\ConfirmClick')
