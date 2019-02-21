@@ -64,15 +64,15 @@ You can also choose to navigate any of the Nova routes
 
 ```php
 Button::make('Text')->index('App\Nova\User')
-Button::make('Text')->index('App\Nova\User')
-    ->withFilters([
-        'App\Nova\Filters\UserOrders' => 1,
-        'App\Nova\Filters\OrderStatus' => 'active',
-    ])
 Button::make('Text')->detail('App\Nova\User', $this->user_id)
 Button::make('Text')->create('App\Nova\User')
 Button::make('Text')->edit('App\Nova\User', $this->user_id)
 Button::make('Text')->lens('App\Nova\User', 'users-without-confirmation')
+Button::make('Text')->index('App\Nova\Order')
+    ->withFilters([
+        'App\Nova\Filters\UserOrders' => $this->user_id,
+        'App\Nova\Filters\OrderStatus' => 'active',
+    ])
 ```
 
 Or external links
