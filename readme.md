@@ -58,7 +58,7 @@ Button::make('Notify')->event('App\Events\NotifyRequested')
 
 You register listeners in your EventServiceProvider
 
-### Navigation
+### Nova Routes
 
 You can also choose to navigate any of the Nova routes
 
@@ -68,14 +68,16 @@ Button::make('Text')->detail('App\Nova\User', $this->user_id)
 Button::make('Text')->create('App\Nova\User')
 Button::make('Text')->edit('App\Nova\User', $this->user_id)
 Button::make('Text')->lens('App\Nova\User', 'users-without-confirmation')
-Button::make('Text')->index('App\Nova\Order')
-    ->withFilters([
-        'App\Nova\Filters\UserOrders' => $this->user_id,
-        'App\Nova\Filters\OrderStatus' => 'active',
-    ])
+```
+You can also enable a resource's filters 
+```php
+Button::make('Text')->index('App\Nova\Order')->withFilters([
+    'App\Nova\Filters\UserOrders' => $this->user_id,
+    'App\Nova\Filters\OrderStatus' => 'active',
+])
 ```
 
-Or external links
+### Links
 ```php
 Button::make('Text')->link('https://nova.laravel.com')
 Button::make('Text')->link('https://nova.laravel.com', '_self')
