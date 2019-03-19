@@ -242,6 +242,20 @@ class Button extends Field
         return $this;
     }
 
+    public function editAttached($namespace, $id, $relationNamespace, $relationId, $viaRelationship)
+    {
+        $this->route('edit-attached', [
+            'resourceName' => $this->normalizeResourceName($namespace),
+            'resourceId' => $id,
+            'relatedResourceName' => $this->normalizeResourceName($relationNamespace),
+            'relatedResourceId' => $relationId,
+        ], [
+            'viaRelationship' => $viaRelationship
+        ]);
+
+        return $this;
+    }
+
     public function lens($namespace, $key)
     {
         $this->route('lens', [
@@ -260,14 +274,14 @@ class Button extends Field
         return $this;
     }
 
-    public function route($name, $params)
+    public function route($name, $params, $query = [])
     {
         $this->type = 'route';
 
         $this->route = [
             'name' => $name,
             'params' => $params,
-            'query' => [],
+            'query' => $query,
         ];
 
         return $this;
