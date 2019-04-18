@@ -33,6 +33,9 @@
 </template>
 
 <style>
+.nova-button {
+  white-space: nowrap;
+}
 .nova-button-loading,
 .nova-button-success,
 .nova-button-error {
