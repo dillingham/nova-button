@@ -274,6 +274,19 @@ class Button extends Field
     }
 
     /**
+     * Add params to route
+     *
+     * @param  array $params
+     * @return $this
+     */
+    public function withParams(array $params)
+    {
+        $this->route['query'] = array_merge($this->route['query'], $params);
+
+        return $this;
+    }
+
+    /**
      * Add filters to index view.
      *
      * @param  array $filters
