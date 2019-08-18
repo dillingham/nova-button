@@ -1,34 +1,13 @@
 <template>
-  <span v-if="field.visible">
-    <router-link
-      v-if="field.type == 'route'"
-      :to="field.route"
+  <span v-if="field.visible" :class="ajaxClasses">
+    <span
       ref="novabutton"
       class="nova-button"
       v-html="buttonText"
+      @click="handleClick"
       :class="buttonClasses"
       :style="{'min-width': buttonWidth}"
-    />
-    <a
-      v-else-if="field.type == 'link'"
-      ref="novabutton"
-      v-html="buttonText"
-      class="nova-button"
-      :class="buttonClasses"
-      :href="field.link.href"
-      :target="field.link.target"
-      :style="{'min-width': buttonWidth}"
-    />
-    <span v-else :class="ajaxClasses">
-      <a
-        ref="novabutton"
-        v-html="buttonText"
-        @click.once="handleClick"
-        class="nova-button"
-        :class="buttonClasses"
-        :style="{'min-width': buttonWidth}"
-      />
-    </span>
+    ></span>
   </span>
 </template>
 
@@ -73,6 +52,7 @@ export default {
         queue.remove(this.resourceId);
         this.$emit("success");
         this.$emit("finished");
+        this.navigate();
       } catch (error) {
         this.error = true;
         this.loading = false;
@@ -97,10 +77,23 @@ export default {
           event: this.field.event
         }
       );
+    },
+    navigate() {
+      if(this.field.type == 'route') {
+        this.$router.push(this.field.route);
+      }
+
+      if(this.field.type == 'link') {
+        window.open(this.field.link.href, this.field.link.target);
+      }
     }
   },
   computed: {
     buttonText: function() {
+      if(this.field.link && this.field.link.target == '_blank') {
+        return this.field.text;
+      }
+
       if (this.error && this.field.errorText) {
         return this.field.errorText;
       }
@@ -116,6 +109,9 @@ export default {
       return this.field.text;
     },
     buttonClasses: function() {
+      if(this.field.link && this.field.link.target == '_blank') {
+        return this.field.classes;
+      }
       if (this.error && this.field.errorClasses.length) {
         return this.field.errorClasses + " text-center nova-button-error";
       }
