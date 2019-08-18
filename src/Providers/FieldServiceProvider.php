@@ -2,10 +2,10 @@
 
 namespace NovaButton\Providers;
 
-use Laravel\Nova\Nova;
 use Illuminate\Support\Facades\Route;
-use Laravel\Nova\Events\ServingNova;
 use Illuminate\Support\ServiceProvider;
+use Laravel\Nova\Events\ServingNova;
+use Laravel\Nova\Nova;
 
 class FieldServiceProvider extends ServiceProvider
 {
@@ -17,7 +17,7 @@ class FieldServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-             __DIR__.'/../../config/nova-button.php' => config_path('nova-button.php')
+             __DIR__.'/../../config/nova-button.php' => config_path('nova-button.php'),
         ], 'nova-button');
 
         Nova::serving(function (ServingNova $event) {
@@ -38,7 +38,7 @@ class FieldServiceProvider extends ServiceProvider
     }
 
     /**
-     * Registers field routes
+     * Registers field routes.
      *
      * @return void
      */
@@ -46,6 +46,6 @@ class FieldServiceProvider extends ServiceProvider
     {
         Route::middleware(['nova'])
              ->prefix('nova-vendor/nova-button')
-             ->group(__DIR__ . '/../../routes/api.php');
+             ->group(__DIR__.'/../../routes/api.php');
     }
 }
