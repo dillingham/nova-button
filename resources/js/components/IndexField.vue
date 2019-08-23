@@ -1,7 +1,7 @@
 <template>
-    <div v-if="field.visible">    
+    <div v-if="field.visible">
         <span v-if="field.confirm == null" :class="{'block text-right': field.indexAlign == 'right'}">
-            <nova-button 
+            <nova-button
                 :field="field"
                 :resourceName="resourceName"
                 :resourceId="$parent.resource['id'].value"
@@ -9,9 +9,7 @@
             />
         </span>
         <div v-else :class="{'block text-right': field.indexAlign == 'right'}">
-            <span>
-                <a :class="field.classes" v-html="field.text" @click="openModal = true" />
-            </span>
+            <a class="whitespace-no-wrap" :class="field.classes" v-html="field.text" @click="openModal = true" />
             <portal to="modals">
                 <transition name="fade">
                      <modal v-if="openModal" @modal-close="openModal = false">
@@ -20,14 +18,14 @@
                                 <heading :level="2" class="mb-6" v-html="field.confirm.title"></heading>
                                 <p class="text-80 leading-normal" v-html="field.confirm.body"></p>
                             </div>
-                            <div 
-                                class="border-t border-50 px-6 py-3 ml-auto flex items-center" 
+                            <div
+                                class="border-t border-50 px-6 py-3 ml-auto flex items-center"
                                 style="min-height: 70px; flex-direction: row-reverse">
-                                <a 
-                                    style="order:2;" 
+                                <a
+                                    style="order:2;"
                                     @click.prevent="openModal = false"
                                     class="cursor-pointer btn text-80 font-normal px-3 mr-3 btn-link" >Cancel</a>
-                                <nova-button 
+                                <nova-button
                                     :field="field"
                                     @finished="modalReload"
                                     :resourceName="resourceName"
@@ -64,7 +62,7 @@ export default {
         modalReload()
         {
             window.setTimeout(() => {
-                this.openModal = false;          
+                this.openModal = false;
                 this.reload()
             }, 400)
         }
