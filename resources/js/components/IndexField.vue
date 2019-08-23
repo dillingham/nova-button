@@ -13,7 +13,7 @@
             <portal to="modals">
                 <transition name="fade">
                      <modal v-if="openModal" @modal-close="openModal = false">
-                         <div class="bg-white rounded-lg shadow-lg overflow-hidden" style="width: 460px;">
+                        <form class="bg-white rounded-lg shadow-lg overflow-hidden" style="width: 460px;">
                             <div class="p-8">
                                 <heading :level="2" class="mb-6" v-html="field.confirm.title"></heading>
                                 <p class="text-80 leading-normal" v-html="field.confirm.body"></p>
@@ -32,7 +32,7 @@
                                     :resourceId="$parent.resource['id'].value"
                                 />
                             </div>
-                         </div>
+                        </form>
                     </modal>
                 </transition>
             </portal>
