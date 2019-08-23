@@ -3,9 +3,9 @@
         <div class="w-1/4 py-4">
             <label class="font-normal text-80">{{ field.label }}</label>
         </div>
-        <div class="w-3/4 py-4">           
+        <div class="w-3/4 py-4">
             <span v-if="field.confirm == null">
-                <nova-button 
+                <nova-button
                     :field="field"
                     :resourceName="resourceName"
                     :resourceId="resourceId"
@@ -13,9 +13,7 @@
                 />
             </span>
             <div v-else>
-                <span>
-                    <a :class="field.classes" v-html="field.text" @click="openModal = true" />
-                </span>
+                <a :class="field.classes" v-html="field.text" @click="openModal = true" />
                 <portal to="modals">
                     <transition name="fade">
                         <modal v-if="openModal" @modal-close="openModal = false">
@@ -24,12 +22,12 @@
                                     <heading :level="2" class="mb-6" v-html="field.confirm.title"></heading>
                                     <p class="text-80 leading-normal" v-html="field.confirm.body"></p>
                                 </div>
-                                <div 
-                                    class="border-t border-50 px-6 py-3 ml-auto flex items-center" 
+                                <div
+                                    class="border-t border-50 px-6 py-3 ml-auto flex items-center"
                                     style="min-height: 70px; flex-direction: row-reverse">
-                                    <a 
-                                        style="order: 2;" 
-                                        class="cursor-pointer btn text-80 font-normal px-3 mr-3 btn-link" 
+                                    <a
+                                        style="order: 2;"
+                                        class="cursor-pointer btn text-80 font-normal px-3 mr-3 btn-link"
                                         @click.prevent="openModal = false">Cancel</a>
                                     <nova-button v-bind="$props" @finished="modalReload" />
                                 </div>
@@ -63,7 +61,7 @@ export default {
         },
         modalReload() {
             window.setTimeout(() => {
-                this.openModal = false;          
+                this.openModal = false;
                 this.reload()
             }, 400)
         }
