@@ -131,7 +131,7 @@ class Button extends Field
     public function confirm($message1 = null, $message2 = null)
     {
         $this->confirm = [
-            'title' => 'Confirmation',
+            'title' => __('Confirmation'),
             'body'  => null,
         ];
 
