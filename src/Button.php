@@ -4,6 +4,8 @@ namespace NovaButton;
 
 use Laravel\Nova\Fields\Field;
 use Laravel\Nova\Resource;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
 
 class Button extends Field
 {
@@ -55,7 +57,7 @@ class Button extends Field
     {
         $this->name = $name;
         $this->text = $name;
-        $this->key = $key ?? kebab_case($name);
+        $this->key = $key ?? Str::kebab($name);
         $this->config = config('nova-button');
         $this->addDefaultSettings();
     }
@@ -65,10 +67,10 @@ class Button extends Field
         parent::resolve($resource, $attribute);
 
         $this->classes[] = 'nova-button-'.strtolower(class_basename($resource));
-        $this->classes[] = array_get($this->config, "styles.{$this->style}");
-        $this->loadingClasses = array_get($this->config, "styles.{$this->loadingStyle}");
-        $this->successClasses = array_get($this->config, "styles.{$this->successStyle}");
-        $this->errorClasses = array_get($this->config, "styles.{$this->errorStyle}");
+        $this->classes[] = Arr::get($this->config, "styles.{$this->style}");
+        $this->loadingClasses = Arr::get($this->config, "styles.{$this->loadingStyle}");
+        $this->successClasses = Arr::get($this->config, "styles.{$this->successStyle}");
+        $this->errorClasses = Arr::get($this->config, "styles.{$this->errorStyle}");
 
         $this->withMeta([
             'key'            => $this->key,
@@ -320,30 +322,30 @@ class Button extends Field
     public function addDefaultSettings()
     {
         $this->addLinkFallbacks();
-        $this->style = array_get($this->config, 'defaults.style', 'link-primary');
-        $this->loadingText = array_get($this->config, 'defaults.loadingText', 'Loading');
-        $this->loadingStyle = array_get($this->config, 'defaults.loadingStyle', str_replace('primary', 'grey', $this->style));
-        $this->errorText = array_get($this->config, 'defaults.errorText', 'Error!');
-        $this->errorStyle = array_get($this->config, 'defaults.errorStyle', str_replace('primary', 'danger', $this->style));
-        $this->successText = array_get($this->config, 'defaults.successText', 'Success!');
-        $this->successStyle = array_get($this->config, 'defaults.successStyle', str_replace('primary', 'success', $this->style));
+        $this->style = Arr::get($this->config, 'defaults.style', 'link-primary');
+        $this->loadingText = Arr::get($this->config, 'defaults.loadingText', 'Loading');
+        $this->loadingStyle = Arr::get($this->config, 'defaults.loadingStyle', str_replace('primary', 'grey', $this->style));
+        $this->errorText = Arr::get($this->config, 'defaults.errorText', 'Error!');
+        $this->errorStyle = Arr::get($this->config, 'defaults.errorStyle', str_replace('primary', 'danger', $this->style));
+        $this->successText = Arr::get($this->config, 'defaults.successText', 'Success!');
+        $this->successStyle = Arr::get($this->config, 'defaults.successStyle', str_replace('primary', 'success', $this->style));
     }
 
     public function addLinkFallbacks()
     {
-        if (!array_has($this->config, 'styles.link-primary')) {
+        if (!Arr::has($this->config, 'styles.link-primary')) {
             $this->config['styles']['link-primary'] = 'cursor-pointer dim inline-block text-primary font-bold no-underline';
         }
 
-        if (!array_has($this->config, 'styles.link-success')) {
+        if (!Arr::has($this->config, 'styles.link-success')) {
             $this->config['styles']['link-success'] = 'cursor-pointer dim inline-block text-success font-bold no-underline';
         }
 
-        if (!array_has($this->config, 'styles.link-grey')) {
+        if (!Arr::has($this->config, 'styles.link-grey')) {
             $this->config['styles']['link-grey'] = 'cursor-pointer dim inline-block text-grey font-bold no-underline';
         }
 
-        if (!array_has($this->config, 'styles.link-danger')) {
+        if (!Arr::has($this->config, 'styles.link-danger')) {
             $this->config['styles']['link-danger'] = 'cursor-pointer dim inline-block text-danger font-bold no-underline';
         }
     }
