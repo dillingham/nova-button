@@ -7,6 +7,7 @@
       @click="handleClick"
       :class="buttonClasses"
       :style="{'min-width': buttonWidth}"
+      :title="field.title"
     ></span>
   </span>
 </template>
