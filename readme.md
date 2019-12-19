@@ -124,7 +124,7 @@ Button::make('Remind User')->loadingText('Sending..')->successText('Sent!')
 | Event | Text | Style |
 | -- | -- | -- |
 | loading | `loadingText('Loading..')` | `loadingStyle('grey-outline')` |
-| success | `successText('Done!')` | `successStyle('succes')` |
+| success | `successText('Done!')` | `successStyle('success')` |
 | error | `errorText('Failed')` | `errorStyle('danger')` |
 
 Defaults defined in the `nova-button` config. Add methods when you want to change for specific resources
