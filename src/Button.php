@@ -60,6 +60,7 @@ class Button extends Field
         $this->name = $name;
         $this->text = $name;
         $this->key = $key ?? Str::kebab($name);
+        $this->attribute = $this->key;
         $this->config = config('nova-button');
         $this->addDefaultSettings();
     }
