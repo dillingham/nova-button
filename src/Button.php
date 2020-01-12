@@ -30,6 +30,8 @@ class Button extends Field
     public $type = null;
 
     public $label = null;
+    
+    public $title = null;
 
     public $indexName = null;
 
@@ -85,6 +87,7 @@ class Button extends Field
             'visible'        => $this->visible,
             'classes'        => $this->classes,
             'indexName'      => $this->indexName,
+            'title'          => $this->title,
             'indexAlign'     => $this->indexAlign,
             'errorText'      => $this->errorText,
             'errorClasses'   => $this->errorClasses,
@@ -202,6 +205,14 @@ class Button extends Field
     {
         $this->label = $label;
 
+        return $this;
+    }
+    
+    
+    public function title($title)
+    {
+        $this->title = $title;
+        
         return $this;
     }
 
