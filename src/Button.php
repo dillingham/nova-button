@@ -2,10 +2,10 @@
 
 namespace NovaButton;
 
-use Laravel\Nova\Fields\Field;
-use Laravel\Nova\Resource;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
+use Laravel\Nova\Fields\Field;
+use Laravel\Nova\Resource;
 
 class Button extends Field
 {
@@ -30,7 +30,7 @@ class Button extends Field
     public $type = null;
 
     public $label = null;
-    
+
     public $title = null;
 
     public $indexName = null;
@@ -208,12 +208,11 @@ class Button extends Field
 
         return $this;
     }
-    
-    
+
     public function title($title)
     {
         $this->title = $title;
-        
+
         return $this;
     }
 
@@ -287,9 +286,10 @@ class Button extends Field
     }
 
     /**
-     * Add params to route
+     * Add params to route.
      *
-     * @param  array $params
+     * @param array $params
+     *
      * @return $this
      */
     public function withParams(array $params)
