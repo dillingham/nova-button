@@ -17,7 +17,7 @@ class FieldServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-             __DIR__.'/../../config/nova-button.php' => config_path('nova-button.php'),
+            __DIR__.'/../../config/nova-button.php' => config_path('nova-button.php'),
         ], 'nova-button');
 
         Nova::serving(function (ServingNova $event) {
