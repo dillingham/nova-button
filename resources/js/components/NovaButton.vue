@@ -8,6 +8,7 @@
       :class="buttonClasses"
       :style="{'min-width': buttonWidth}"
       :title="field.title"
+      :dusk="field.attribute"
     ></span>
   </span>
 </template>
