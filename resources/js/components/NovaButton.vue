@@ -28,7 +28,7 @@
 import { queue } from "../queue.js";
 
 export default {
-  props: ["resource", "resourceName", "resourceId", "field"],
+  props: ["resource", "resourceName", "resourceId", "field", "ajaxClasses"],
   data: () => ({
     buttonWidth: null,
     loading: false,
