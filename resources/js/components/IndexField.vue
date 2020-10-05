@@ -41,31 +41,10 @@
 </template>
 
 <script>
-
-import { queue } from '../queue.js';
+import field from '../../field';
 
 export default {
     props: ['resourceName', 'field'],
-    data() {
-        return {
-            openModal: false
-        }
-    },
-    methods: {
-        reload()  {
-            if(this.field.reload && queue.allowsReload()) {
-                window.setTimeout(() => {
-                    this.$router.go()
-                }, 200)
-            }
-        },
-        modalReload()
-        {
-            window.setTimeout(() => {
-                this.openModal = false;
-                this.reload()
-            }, 400)
-        }
-    }
+    mixins: [field]
 }
 </script>
