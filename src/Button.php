@@ -17,7 +17,7 @@ class Button extends Field
 
     public $visible = true;
 
-    public $showOnUpdate = false;
+    public $showOnUpdate = true;
 
     public $showOnCreation = false;
 
