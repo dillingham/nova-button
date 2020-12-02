@@ -44,7 +44,7 @@
     import {queue} from '../queue.js';
 
     export default {
-        props: ['resourceName', 'field'],
+        props: ['resource', 'resourceName', 'resourceId', 'field'],
         data() {
             return {
                 openModal: false
