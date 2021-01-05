@@ -1,7 +1,7 @@
 ## Nova Button
 
 [![Latest Version on Github](https://img.shields.io/github/release/dillingham/nova-button.svg?style=flat-square)](https://packagist.org/packages/dillingham/nova-button)
-[![Total Downloads](https://img.shields.io/packagist/dt/dillingham/nova-button.svg?style=flat-square)](https://packagist.org/packages/dillingham/nova-button) [![Twitter Follow](https://img.shields.io/twitter/follow/dillinghammm?color=%231da1f1&label=Twitter&logo=%231da1f1&logoColor=%231da1f1&style=flat-square)](https://twitter.com/dillinghammm)
+[![Total Downloads](https://img.shields.io/packagist/dt/dillingham/nova-button.svg?style=flat-square)](https://packagist.org/packages/dillingham/nova-button) [![Twitter Follow](https://img.shields.io/twitter/follow/im_brian_d?color=%231da1f1&label=Twitter&logo=%231da1f1&logoColor=%231da1f1&style=flat-square)](https://twitter.com/im_brian_d)
 
 Nova package for rendering buttons on index, detail and lens views.
 
@@ -124,7 +124,7 @@ Button::make('Remind User')->loadingText('Sending..')->successText('Sent!')
 | Event | Text | Style |
 | -- | -- | -- |
 | loading | `loadingText('Loading..')` | `loadingStyle('grey-outline')` |
-| success | `successText('Done!')` | `successStyle('succes')` |
+| success | `successText('Done!')` | `successStyle('success')` |
 | error | `errorText('Failed')` | `errorStyle('danger')` |
 
 Defaults defined in the `nova-button` config. Add methods when you want to change for specific resources
@@ -233,3 +233,13 @@ Button::make('Confirm')->event('App\Events\ConfirmClick')
 # Telescope inspection
 
 ![event-triggered](https://user-images.githubusercontent.com/29180903/50742633-1a1b8800-11dc-11e9-8a2d-5ec70d3fcae4.png)
+
+---
+
+# Author
+
+Hi 👋, Im Brian Dillingham, creator of this Nova package [and others](https://novapackages.com/collaborators/dillingham)
+
+Hope you find it useful. Feel free to reach out with feedback.
+
+Follow me on twitter: [@im_brian_d](https://twitter.com/im_brian_d) 
