@@ -202,9 +202,10 @@ class Button extends Field
         return $this;
     }
 
-    public function label($label)
+    public function label($label, $showOnIndex = false)
     {
         $this->label = $label;
+        if (!!$showOnIndex) $this->indexName = $label;
 
         return $this;
     }
