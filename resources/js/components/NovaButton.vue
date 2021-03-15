@@ -75,7 +75,8 @@ export default {
       return Nova.request().post(
         root + `${this.resourceName}/${this.resourceId}/${this.field.key}`,
         {
-          event: this.field.event
+          event: this.field.event,
+          note:  this.field.reason,
         }
       );
     },
