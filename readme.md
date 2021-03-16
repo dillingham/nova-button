@@ -112,10 +112,12 @@ Button::make('Cancel Account')->confirm('Are you sure?'),
 Button::make('Cancel Account')->confirm('title', 'content'),
 ```
 ### Reason
-You can require a Reason or note for descructive actions
+You can require a Reason or note for descructive actions 
+
+first add confirm then add reason
 
 ```php
-Button::make('Cancel Account')->reason('put your reason'),
+Button::make('Cancel Account')->confirm('Are you sure?')->reason('put your reason'),
 ```
 then you can get data for reason from even or anywhere using : 
 
