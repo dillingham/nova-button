@@ -112,6 +112,20 @@ Button::make('Cancel Account')->confirm('Are you sure?'),
 Button::make('Cancel Account')->confirm('title', 'content'),
 ```
 
+### Reason
+You can require an chooseOption for multiple actions
+
+first add confirm then add chooseOption
+
+```php
+Button::make('Cancel Account')->confirm('Are you sure?')->chooseOption(['options']),
+```
+then you can get data for reason from even or anywhere using :
+
+```php
+   $note =request()->input('option');
+```
+
 ### Button state
 When using events, you want visual feedback for the end user.
 

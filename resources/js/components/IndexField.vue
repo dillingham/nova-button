@@ -17,6 +17,19 @@
                             <div class="p-8">
                                 <heading :level="2" class="mb-6" v-html="field.confirm.title"></heading>
                                 <p class="text-80 leading-normal" v-html="field.confirm.body"></p>
+                              <br>
+                              <select v-if="field.chooseOption != null"
+                                      id="paymentType"
+                                      dusk="paymentType"
+                                      required
+                                      placeholder="Payment Type"
+                                      class="w-full form-control form-input form-input-bordered py-3 h-auto des"
+                                      v-model="field.chooseOption"
+                              >
+                                <option v-for="option in field.chooseOption[0]" v-bind:value="option">
+                                  {{ option }}
+                                </option>
+                              </select>
                             </div>
                             <div
                                 class="border-t border-50 px-6 py-3 ml-auto flex items-center"
@@ -24,7 +37,7 @@
                                 <a
                                     style="order:2;"
                                     @click.prevent="openModal = false"
-                                    class="cursor-pointer btn text-80 font-normal px-3 mr-3 btn-link" >Cancel</a>
+                                    class="cursor-pointer btn text-80 font-normal px-3 mr-3 btn-link">{{ __('Cancel') }}</a>
                                 <nova-button
                                     :field="field"
                                     @finished="modalReload"
