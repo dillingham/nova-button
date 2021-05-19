@@ -63,6 +63,7 @@ You register listeners in your EventServiceProvider
 You can also choose to navigate any of the Nova routes
 
 ```php
+Button::make('Text')->route('vuejs-route-name', ['id' => 1])
 Button::make('Text')->index('App\Nova\User')
 Button::make('Text')->detail('App\Nova\User', $this->user_id)
 Button::make('Text')->create('App\Nova\User')
