@@ -112,10 +112,20 @@ Button::make('Cancel Account')->confirm('Are you sure?'),
 Button::make('Cancel Account')->confirm('title', 'content'),
 ```
 ### Reason
-You can require a Reason or note for descructive actions 
+You can require a Reason or note for descructive actions
 
+first add confirm then add reason
 
-### Reason
+```php
+Button::make('Cancel Account')->confirm('Are you sure?')->reason('put your reason'),
+```
+then you can get data for reason from even or anywhere using :
+
+```php
+   $note =request()->input('note');
+```
+
+### Choose Option
 You can require an chooseOption for multiple actions
 
 first add confirm then add chooseOption
@@ -126,19 +136,9 @@ Button::make('Cancel Account')->confirm('Are you sure?')->chooseOption(['options
 then you can get data for reason from even or anywhere using :
 
 ```php
-   $note =request()->input('option');
+   $potion =request()->input('option');
 ```
 
-first add confirm then add reason
-
-```php
-Button::make('Cancel Account')->confirm('Are you sure?')->reason('put your reason'),
-```
-then you can get data for reason from even or anywhere using : 
-
-```php
-   $note =request()->input('note');
-```
 ### Button state
 When using events, you want visual feedback for the end user.
 

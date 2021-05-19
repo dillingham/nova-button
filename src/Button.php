@@ -42,6 +42,7 @@ class Button extends Field
     public $confirm = null;
 
     public $chooseOption= [];
+
     public $reason = null;
 
     public $indexAlign = 'right';
