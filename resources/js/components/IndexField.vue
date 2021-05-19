@@ -9,10 +9,10 @@
             />
         </span>
         <div v-else :class="{'block text-right': field.indexAlign == 'right'}">
-            <a class="whitespace-no-wrap" :class="field.classes" v-html="field.text" @click="openModal = true" />
-            <portal to="modals">
+            <a class="whitespace-no-wrap" :class="field.classes" v-html="field.text" @click="openModal = true"/>
+            <portal to="modals" v-if="openModal">
                 <transition name="fade">
-                     <modal v-if="openModal" @modal-close="openModal = false">
+                    <modal @modal-close="openModal = false">
                         <form class="bg-white rounded-lg shadow-lg overflow-hidden" style="width: 460px;">
                             <div class="p-8">
                                 <heading :level="2" class="mb-6" v-html="field.confirm.title"></heading>
@@ -30,6 +30,16 @@
                                   {{ option }}
                                 </option>
                               </select>
+                                <textarea v-if="field.reason != null"
+                                          id="description"
+                                          dusk="description"
+                                          rows="3"
+                                          required
+                                          placeholder="Description"
+                                          class="w-full form-control form-input form-input-bordered py-3 h-auto des"
+                                          v-model="field.reason">
+                                    >
+                                     </textarea>
                             </div>
                             <div
                                 class="border-t border-50 px-6 py-3 ml-auto flex items-center"
@@ -55,30 +65,29 @@
 
 <script>
 
-import { queue } from '../queue.js';
+    import {queue} from '../queue.js';
 
-export default {
-    props: ['resourceName', 'field'],
-    data() {
-        return {
-            openModal: false
-        }
-    },
-    methods: {
-        reload()  {
-            if(this.field.reload && queue.allowsReload()) {
-                window.setTimeout(() => {
-                    this.$router.go()
-                }, 200)
+    export default {
+        props: ['resourceName', 'field'],
+        data() {
+            return {
+                openModal: false
             }
         },
-        modalReload()
-        {
-            window.setTimeout(() => {
-                this.openModal = false;
-                this.reload()
-            }, 400)
+        methods: {
+            reload() {
+                if (this.field.reload && queue.allowsReload()) {
+                    window.setTimeout(() => {
+                        this.$router.go()
+                    }, 200)
+                }
+            },
+            modalReload() {
+                window.setTimeout(() => {
+                    this.openModal = false;
+                    this.reload()
+                }, 400)
+            }
         }
     }
-}
 </script>

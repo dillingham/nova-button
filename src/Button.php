@@ -42,6 +42,7 @@ class Button extends Field
     public $confirm = null;
 
     public $chooseOption= [];
+    public $reason = null;
 
     public $indexAlign = 'right';
 
@@ -87,6 +88,7 @@ class Button extends Field
             'route'          => $this->route,
             'reload'         => $this->reload,
             'confirm'        => $this->confirm,
+            'reason'         => $this->reason,
             'visible'        => $this->visible,
             'classes'        => $this->classes,
             'indexName'      => $this->indexName,
@@ -159,6 +161,13 @@ class Button extends Field
             $this->confirm['title'] = $message1;
             $this->confirm['body'] = $message2;
         }
+
+        return $this;
+    }
+
+    public function reason($defulte_data = 'put your reason')
+    {
+        $this->reason = $defulte_data;
 
         return $this;
     }
