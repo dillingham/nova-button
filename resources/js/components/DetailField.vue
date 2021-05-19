@@ -28,7 +28,7 @@
                                     <a
                                         style="order: 2;"
                                         class="cursor-pointer btn text-80 font-normal px-3 mr-3 btn-link"
-                                        @click.prevent="openModal = false">Cancel</a>
+                                        @click.prevent="openModal = false" v-text="field.confirm.cancelButtonText"></a>
                                     <nova-button v-bind="$props" @finished="modalReload" />
                                 </div>
                             </div>
