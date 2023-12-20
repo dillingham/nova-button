@@ -12,7 +12,7 @@ I'm so glad to see active forks though!
 ---
 
 [![Latest Version on Github](https://img.shields.io/github/release/dillingham/nova-button.svg?style=flat-square)](https://packagist.org/packages/dillingham/nova-button)
-[![Total Downloads](https://img.shields.io/packagist/dt/dillingham/nova-button.svg?style=flat-square)](https://packagist.org/packages/dillingham/nova-button) [![Twitter Follow](https://img.shields.io/twitter/follow/im_brian_d?color=%231da1f1&label=Twitter&logo=%231da1f1&logoColor=%231da1f1&style=flat-square)](https://twitter.com/im_brian_d)
+[![Total Downloads](https://img.shields.io/packagist/dt/dillingham/nova-button.svg?style=flat-square)](https://packagist.org/packages/dillingham/nova-button) [![Twitter Follow](https://img.shields.io/twitter/follow/sir_brian_d?color=%231da1f1&label=Twitter&logo=%231da1f1&logoColor=%231da1f1&style=flat-square)](https://twitter.com/sir_brian_d)
 
 Nova package for rendering buttons on index, detail and lens views.
 
@@ -254,4 +254,4 @@ Hi 👋, Im Brian Dillingham, creator of this Nova package [and others](https://
 
 Hope you find it useful. Feel free to reach out with feedback.
 
-Follow me on twitter: [@im_brian_d](https://twitter.com/sir_brian_d) 
+Follow me on twitter: [@sir_brian_d](https://twitter.com/sir_brian_d) 
