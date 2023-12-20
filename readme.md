@@ -6,8 +6,8 @@ I haven't used Nova in many years so I'm unable to maintain this.
 
 I'm so glad to see active forks though!
 
-- nova 4 https://github.com/sietse85/nova-button
-- nova 3 https://github.com/dnwjn
+- https://github.com/dnwjn/nova-button
+- https://github.com/sietse85/nova-button
 
 ---
 
