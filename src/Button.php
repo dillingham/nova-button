@@ -134,11 +134,12 @@ class Button extends Field
         return $this;
     }
 
-    public function confirm($message1 = null, $message2 = null)
+    public function confirm($message1 = null, $message2 = null, $cancelButtonText = null)
     {
         $this->confirm = [
             'title' => __('Confirmation'),
             'body'  => null,
+            'cancelButtonText' => __('Cancel'),
         ];
 
         if ($message1 && $message2 == null) {
@@ -148,6 +149,10 @@ class Button extends Field
         if ($message1 && $message2) {
             $this->confirm['title'] = $message1;
             $this->confirm['body'] = $message2;
+        }
+
+        if ($cancelButtonText) {
+            $this->confirm['cancelButtonText'] = $cancelButtonText;
         }
 
         return $this;
